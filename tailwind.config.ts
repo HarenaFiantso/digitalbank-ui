@@ -11,6 +11,10 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-poppins)'],
       },
+      backgroundColor: {
+        main: '#151c2c',
+        'main-soft': '#182237',
+      },
     },
   },
   plugins: [],
