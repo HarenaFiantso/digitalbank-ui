@@ -9,7 +9,7 @@ export default function MenuLink({ item }: { item: MenuItem }) {
   const pathname = usePathname();
 
   return (
-    <Link href={item.path} className={`my-[5px] flex items-center gap-[10px] rounded-[30px] p-[20px] text-md transition-all hover:bg-hover ${pathname === item.path && 'bg-hover'}`}>
+    <Link href={item.path} className={`my-[5px] flex items-center gap-[10px] rounded-[10px] p-[20px] text-md transition-all hover:bg-hover ${pathname === item.path && 'bg-hover'}`}>
       <span className="text-lg text-blue">{item.icon}</span> {item.title}
     </Link>
   );
