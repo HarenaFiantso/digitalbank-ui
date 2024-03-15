@@ -1,3 +1,3 @@
 export default function TransactionList() {
-  return <>Transaction List</>
+  return <>Transaction List</>;
 }
