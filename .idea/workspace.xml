@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9094c44-c951-4ff4-bd00-d395df6357ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.prettierrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard/navbar/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/navbar/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard/sidebar/menuLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/sidebar/menuLink.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -48,8 +44,8 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/fiantsoharena/Documents/school/digitalbank-ui&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/dashboard&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/fiantsoharena/Documents/projects/asera-ui/tailwind.config.js&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -78,6 +74,7 @@
       <workItem from="1710263417590" duration="324000" />
       <workItem from="1710264460254" duration="600000" />
       <workItem from="1710391488710" duration="1481000" />
+      <workItem from="1710402426597" duration="10371000" />
     </task>
     <servers />
   </component>
@@ -87,8 +84,10 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
-  <component name="WfRunsListSearchHistory">{
-  &quot;history&quot;: [
+  <component name="WfRunsListSearchHistory"><![CDATA[{
+  "history": [
+    {
+    },
     {
     },
     {
@@ -104,7 +103,7 @@
     {
     }
   ],
-  &quot;lastFilter&quot;: {
+  "lastFilter": {
   }
-}</component>
+}]]></component>
 </project>
