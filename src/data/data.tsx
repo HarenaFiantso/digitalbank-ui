@@ -10,7 +10,7 @@ import {
   MdWork,
 } from 'react-icons/md';
 
-export const menuItems = [
+export const data = [
   {
     title: 'Pages',
     list: [
