@@ -14,10 +14,10 @@ export default function Sidebar() {
         </div>
       </div>
       <ul>
-        {menuItems.map(category => (
+        {menuItems.map((category) => (
           <li key={category.title}>
-            <span className='mb-4 text-2 font-semibold text-[#b7bac1]'>{category.title}</span>
-            {category.list.map(item => (
+            <span className='text-2 mb-4 font-semibold text-[#b7bac1]'>{category.title}</span>
+            {category.list.map((item) => (
               <MenuLink key={item.path} item={item} />
             ))}
           </li>

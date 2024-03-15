@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { usePathname } from 'next/navigation';
 import { MdNotifications, MdOutlineChat, MdPublic, MdSearch } from 'react-icons/md';
@@ -7,14 +7,14 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className='p-5 rounded bg-main-soft flex items-center justify-between'>
-      <div className="text-blue font-bold text-xl capitalize">{pathname.split("/").pop()?.replace("-", " ")}</div>
-      <div className="flex items-center gap-5">
-        <div className="flex items-center gap-2 bg-[#2e374a] p-2 rounded">
+    <div className='flex items-center justify-between rounded bg-main-soft p-5'>
+      <div className='text-xl font-bold capitalize text-blue'>{pathname.split('/').pop()?.replace('-', ' ')}</div>
+      <div className='flex items-center gap-5'>
+        <div className='flex items-center gap-2 rounded bg-[#2e374a] p-2'>
           <MdSearch />
-          <input type="text" placeholder="Search..." className="bg-transparent border-none text-light" />
+          <input type='text' placeholder='Search...' className='border-none bg-transparent text-light' />
         </div>
-        <div className="flex justify-between gap-5">
+        <div className='flex justify-between gap-5'>
           <MdOutlineChat size={20} />
           <MdNotifications size={20} />
           <MdPublic size={20} />
