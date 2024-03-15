@@ -1,14 +1,16 @@
 import {
   MdAnalytics,
   MdAttachMoney,
-  MdDashboard, MdHelpCenter, MdOutlineSettings,
+  MdDashboard,
+  MdFormatListBulleted,
+  MdHelpCenter,
+  MdOutlineSettings,
+  MdOutlineTransferWithinAStation,
   MdPeople,
-  MdShoppingBag,
-  MdSupervisedUserCircle,
   MdWork,
 } from 'react-icons/md';
 
-export const menuItems = [
+export const data = [
   {
     title: 'Pages',
     list: [
@@ -18,14 +20,14 @@ export const menuItems = [
         icon: <MdDashboard />,
       },
       {
-        title: 'Page 1',
-        path: '/dashboard/page-1',
-        icon: <MdSupervisedUserCircle />,
+        title: 'Transaction',
+        path: '/dashboard/transaction-list',
+        icon: <MdFormatListBulleted />,
       },
       {
-        title: 'Page 2',
-        path: '/dashboard/page-2',
-        icon: <MdShoppingBag />,
+        title: 'Transfer',
+        path: '/dashboard/transfer-list',
+        icon: <MdOutlineTransferWithinAStation />,
       },
       {
         title: 'Page 3',
