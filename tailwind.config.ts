@@ -13,9 +13,10 @@ const config: Config = {
       },
       colors: {
         white: '#FFF',
-        'color': '#6D6A7C',
-        'light': "#A19FAD",
-        'blue': "#7d6fd9"
+        color: '#6D6A7C',
+        light: '#A19FAD',
+        blue: '#7d6fd9',
+        blueSoft: '#504394'
       },
       backgroundColor: {
         main: '#151c2c',

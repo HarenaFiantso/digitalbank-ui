@@ -1,6 +1,6 @@
 import { NoAvatar } from '../../../../public/assets';
 import MenuLink from '@/components/dashboard/sidebar/menuLink';
-import { menuItems } from '@/data/menuItems';
+import { data } from '@/data/data';
 import Image from 'next/image';
 
 export default function Sidebar() {
@@ -14,10 +14,10 @@ export default function Sidebar() {
         </div>
       </div>
       <ul>
-        {menuItems.map(category => (
+        {data.map((category) => (
           <li key={category.title}>
-            <span className='mb-4 text-2 font-semibold text-[#b7bac1]'>{category.title}</span>
-            {category.list.map(item => (
+            <span className='text-2 mb-4 font-semibold text-[#b7bac1]'>{category.title}</span>
+            {category.list.map((item) => (
               <MenuLink key={item.path} item={item} />
             ))}
           </li>
