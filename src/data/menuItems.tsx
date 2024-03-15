@@ -6,6 +6,7 @@ import {
   MdShoppingBag,
   MdSupervisedUserCircle,
   MdWork,
+  MdFormatListBulleted
 } from 'react-icons/md';
 
 export const menuItems = [
@@ -18,9 +19,9 @@ export const menuItems = [
         icon: <MdDashboard />,
       },
       {
-        title: 'Page 1',
-        path: '/dashboard/page-1',
-        icon: <MdSupervisedUserCircle />,
+        title: 'Transaction list',
+        path: '/dashboard/transaction-list',
+        icon: <MdFormatListBulleted />,
       },
       {
         title: 'Page 2',
