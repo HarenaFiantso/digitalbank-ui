@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={`${poppins.variable} font-sans`}>
-      <body>{children}</body>
+      <body className='bg-main text-white'>{children}</body>
     </html>
   );
 }
