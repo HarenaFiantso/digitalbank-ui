@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <div className='p-5 rounded bg-main-soft flex items-center justify-between'>
-      <div className="text-blue font-bold text-xl capitalize">{pathname.split("/").pop()}</div>
+      <div className="text-blue font-bold text-xl capitalize">{pathname.split("/").pop()?.replace("-", " ")}</div>
       <div className="flex items-center gap-5">
         <div className="flex items-center gap-2 bg-[#2e374a] p-2 rounded">
           <MdSearch />
