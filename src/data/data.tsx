@@ -20,12 +20,12 @@ export const data = [
         icon: <MdDashboard />,
       },
       {
-        title: 'Transaction list',
+        title: 'Transaction',
         path: '/dashboard/transaction-list',
         icon: <MdFormatListBulleted />,
       },
       {
-        title: 'Transfer list',
+        title: 'Transfer',
         path: '/dashboard/transfer-list',
         icon: <MdOutlineTransferWithinAStation />,
       },
