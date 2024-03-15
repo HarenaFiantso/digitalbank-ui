@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9094c44-c951-4ff4-bd00-d395df6357ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/money.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/sidebar/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/sidebar/sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/menuItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="c9094c44-c951-4ff4-bd00-d395df6357ab" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +76,7 @@
       <workItem from="1710402426597" duration="11128000" />
       <workItem from="1710474769404" duration="418000" />
       <workItem from="1710484348915" duration="236000" />
-      <workItem from="1710513491364" duration="6392000" />
+      <workItem from="1710513491364" duration="7371000" />
     </task>
     <servers />
   </component>
