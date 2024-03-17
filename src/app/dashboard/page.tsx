@@ -26,7 +26,9 @@ export default function Dashboard() {
         </div>
 
         {/* Overview cards */}
-        <div className='cards'>
+        <div className='flex gap-5 justify-between'>
+          <Card />
+          <Card />
           <Card />
         </div>
       </div>
