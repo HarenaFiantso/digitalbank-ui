@@ -9,6 +9,7 @@ import {
   MdPeople,
   MdWork,
 } from 'react-icons/md';
+import { Card } from '@/types/Card';
 
 export const data = [
   {
@@ -70,5 +71,26 @@ export const data = [
         icon: <MdHelpCenter />,
       },
     ],
+  },
+];
+
+export const cards: Card[] = [
+  {
+    id: 1,
+    title: "Total accounts",
+    number: "69",
+    change: 2,
+  },
+  {
+    id: 2,
+    title: "Current balance",
+    number: "69.225",
+    change: -2,
+  },
+  {
+    id: 3,
+    title: "Total debt",
+    number: "6.642",
+    change: 18,
   },
 ];
