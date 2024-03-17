@@ -5,12 +5,12 @@ import Image from 'next/image';
 
 export default function Sidebar() {
   return (
-    <div className='sticky top-0 h-full p-5'>
+    <div className='sticky top-0 h-full p-8'>
       <div className='mb-5 flex items-center gap-5'>
         <Image className='rounded-full' src={NoAvatar} alt='Avatar' width='50' height='50' />
         <div className='flex flex-col gap-2'>
-          <span className='text-lg font-semibold'>Fiantso Harena</span>
-          <span className='text-sm font-medium text-[#b7bac1]'>Administrator</span>
+          <span className='text-lg font-semibold'>Fiantso Harena🍔</span>
+          <span className='text-sm font-medium text-[#b7bac1]'>@FiantsoHarena</span>
         </div>
       </div>
       <ul>
