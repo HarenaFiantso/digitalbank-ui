@@ -1,11 +1,13 @@
 import { BiDownload } from 'react-icons/bi';
 import Image from 'next/image';
 import { Money } from '../../../public/assets';
+import Card from '@/components/dashboard/card/card';
 
 export default function Dashboard() {
   return (
     <div className='mt-5'>
       <div className='flex flex-wrap justify-between'>
+        {/* OnBoarding cards */}
         <div
           className="bg-main-soft rounded-xl w-max p-8 pt-9">
           <div className="flex gap-5 justify-between items-center">
@@ -21,6 +23,11 @@ export default function Dashboard() {
               <BiDownload size={20} /> Download
             </button>
           </div>
+        </div>
+
+        {/* Overview cards */}
+        <div className='cards'>
+          <Card />
         </div>
       </div>
     </div>
