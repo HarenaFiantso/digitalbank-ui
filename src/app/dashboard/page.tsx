@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Money } from '../../../public/assets';
 import Card from '@/components/dashboard/card/card';
 import { cards } from '@/data/data';
+import { CardItem } from '@/types/Card';
 
 export default function Dashboard() {
   return (
@@ -26,7 +27,7 @@ export default function Dashboard() {
         </div>
 
         <div className='flex gap-5 justify-between'>
-          {cards.map(item => (
+          {cards.map((item: CardItem) => (
             <Card item={item} key={item.id} />
           ))}
         </div>
