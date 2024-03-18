@@ -9,7 +9,6 @@ import {
   MdPeople,
   MdWork,
 } from 'react-icons/md';
-import { Card } from '@/types/Card';
 
 export const data = [
   {
@@ -74,7 +73,7 @@ export const data = [
   },
 ];
 
-export const cards: Card[] = [
+export const cards = [
   {
     id: 1,
     title: "Total accounts",

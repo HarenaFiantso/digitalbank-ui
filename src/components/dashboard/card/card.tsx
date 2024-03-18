@@ -1,7 +1,7 @@
 import { MdSupervisedUserCircle } from 'react-icons/md';
+import { CardProps } from '@/types/Card';
 
-/* TODO: Should add an explicit type for item */
-export default function Card({ item }) {
+export default function Card({ item }: CardProps) {
   return (
     <div className="bg-main-soft h-max p-5 rounded-xl flex gap-5 cursor-pointer w-max hover:bg-hover transition-all">
       <MdSupervisedUserCircle size={24} className="text-blue" />
