@@ -1,4 +1,4 @@
+import Money from './money.webp';
 import NoAvatar from './noavatar.png';
-import Money from './money.webp'
 
 export { Money, NoAvatar };
