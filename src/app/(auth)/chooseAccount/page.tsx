@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { AddAccount, NoAvatar } from '../../../../public/assets';
 import { useEffect, useState } from 'react';
 import { fetchAccounts } from '@/api/Accounts';
+import Link from 'next/link';
 
 export default function ChooseAccount() {
   const [accounts, setAccounts] = useState<Account[]>([])
@@ -34,7 +35,7 @@ export default function ChooseAccount() {
             ))}
           </div>
           <div className="mt-10 text-sm text-gray-500 text-center">
-            <p>Not found you account here? <a href="#" className="text-blue hover:underline">Create one</a>
+            <p>Not found you account here? <Link href={"/addAccount"} className="text-blue hover:underline">Create one</Link>
             </p>
           </div>
         </div>
