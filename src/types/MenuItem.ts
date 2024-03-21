@@ -1,7 +1,12 @@
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 
-export interface MenuItem {
-  path: string;
+type PageItem = {
   title: string;
-  icon: ReactNode;
-}
+  path: string;
+  icon: ReactElement;
+};
+
+export type PageCategory = {
+  title: string;
+  list: PageItem[];
+};

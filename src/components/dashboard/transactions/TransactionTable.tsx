@@ -1,8 +1,8 @@
 import { NoAvatar } from '../../../../public/assets';
 import Image from 'next/image';
-import { transactions } from '@/data/data';
+import { transactions } from '@/data/TransactionTable';
 
-export default function Transactions() {
+export default function TransactionTable() {
   return (
     <div className="bg-main-soft p-5 rounded-xl mt-5">
       <h2 className="mb-5 text-xl font-semibold text-blue">Latest Transactions 🚀</h2>

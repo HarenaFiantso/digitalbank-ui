@@ -1,4 +1,4 @@
-import { CardProps } from '@/types/Card';
+import { CardProps } from '@/types/DashboardCard';
 import { MdSupervisedUserCircle } from 'react-icons/md';
 
 export default function Card({ item }: CardProps) {

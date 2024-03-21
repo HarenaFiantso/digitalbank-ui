@@ -1,7 +1,7 @@
 import { NoAvatar } from '../../../../public/assets';
 import MenuLink from '@/components/dashboard/sidebar/menuLink';
-import { data } from '@/data/data';
 import Image from 'next/image';
+import { menu } from '@/data/MenuItem';
 
 export default function Sidebar() {
   return (
@@ -14,7 +14,7 @@ export default function Sidebar() {
         </div>
       </div>
       <ul>
-        {data.map((category) => (
+        {menu.map((category) => (
           <li key={category.title}>
             <span className='text-2 mb-4 font-semibold text-[#b7bac1]'>{category.title}</span>
             {category.list.map((item) => (

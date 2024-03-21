@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { MdNotifications, MdOutlineChat, MdPublic, MdSearch } from 'react-icons/md';
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const pathname: string = usePathname();
 
   return (
     <div className='flex items-center justify-between rounded bg-main-soft p-5'>

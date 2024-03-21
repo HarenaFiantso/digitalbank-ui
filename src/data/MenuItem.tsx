@@ -9,8 +9,9 @@ import {
   MdPeople,
   MdWork,
 } from 'react-icons/md';
+import { PageCategory } from '@/types/MenuItem';
 
-export const data = [
+export const menu: PageCategory[] = [
   {
     title: 'Pages',
     list: [
@@ -72,51 +73,3 @@ export const data = [
     ],
   },
 ];
-
-export const cards = [
-  {
-    id: 1,
-    title: 'Total accounts',
-    number: '69',
-    change: 2,
-  },
-  {
-    id: 2,
-    title: 'Current balance',
-    number: '69.225',
-    change: -2,
-  },
-  {
-    id: 3,
-    title: 'Total debt',
-    number: '6.642',
-    change: 18,
-  },
-];
-
-export const transactions = [
-  {
-    id: 1,
-    name: 'Fiantso',
-    reason: 'troubleshooting',
-    type: 'Credit',
-    date: '18.03.2024',
-    amount: '38.000'
-  },
-  {
-    id: 2,
-    name: 'Tanjona',
-    reason: 'Smatchin ticket',
-    type: 'Debit',
-    date: '18.03.2024',
-    amount: '3.000'
-  },
-  {
-    id: 3,
-    name: "Tendry",
-    reason: 'Alcohol',
-    type: 'Credit',
-    date: '18.03.2024',
-    amount: '50.000'
-  }
-]
