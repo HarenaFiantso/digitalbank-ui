@@ -1,7 +1,7 @@
 import { NoAvatar } from '../../../../public/assets';
 import MenuLink from '@/components/dashboard/sidebar/menuLink';
-import Image from 'next/image';
 import { menu } from '@/data/MenuItem';
+import Image from 'next/image';
 
 export default function Sidebar() {
   return (

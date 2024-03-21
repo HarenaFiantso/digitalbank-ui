@@ -8,6 +8,7 @@
 Dream Digital Bank, as the name suggests, is a digital bank developed to streamline banking account management using nothing more than an internet-connected device and your preferred web browser!
 
 ## Features:
+
 This web platform primarily focuses on two major functionalities utilizing our proprietary [API](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/HarenaFiantso/digitalbank-api/prod/doc/DNM-bank.yml#/):
 
 - Traditional bank account management

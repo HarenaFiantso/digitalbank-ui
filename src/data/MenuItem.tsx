@@ -1,3 +1,4 @@
+import { PageCategory } from '@/types/MenuItem';
 import {
   MdAnalytics,
   MdAttachMoney,
@@ -9,7 +10,6 @@ import {
   MdPeople,
   MdWork,
 } from 'react-icons/md';
-import { PageCategory } from '@/types/MenuItem';
 
 export const menu: PageCategory[] = [
   {
