@@ -1,6 +1,7 @@
 import { NoAvatar } from '../../../../public/assets';
 import MenuLink from '@/components/dashboard/sidebar/menuLink';
-import { menu } from '@/data/MenuItem';
+import { menu } from '@/data/data';
+import { TPageCategory } from '@/types/types';
 import Image from 'next/image';
 
 export default function Sidebar() {
@@ -14,7 +15,7 @@ export default function Sidebar() {
         </div>
       </div>
       <ul>
-        {menu.map((category) => (
+        {menu.map((category: TPageCategory) => (
           <li key={category.title}>
             <span className='text-2 mb-4 font-semibold text-[#b7bac1]'>{category.title}</span>
             {category.list.map((item) => (

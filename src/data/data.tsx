@@ -1,4 +1,6 @@
-import { PageCategory } from '@/types/MenuItem';
+import { TCard } from '@/types/types';
+import { TPageCategory } from '@/types/types';
+import { TTransaction } from '@/types/types';
 import {
   MdAnalytics,
   MdAttachMoney,
@@ -11,7 +13,34 @@ import {
   MdWork,
 } from 'react-icons/md';
 
-export const menu: PageCategory[] = [
+export const transactions: TTransaction[] = [
+  {
+    id: 1,
+    name: 'Fiantso',
+    reason: 'troubleshooting',
+    type: 'Credit',
+    date: '18.03.2024',
+    amount: '38.000',
+  },
+  {
+    id: 2,
+    name: 'Tanjona',
+    reason: 'Smatchin ticket',
+    type: 'Debit',
+    date: '18.03.2024',
+    amount: '3.000',
+  },
+  {
+    id: 3,
+    name: 'Tendry',
+    reason: 'Alcohol',
+    type: 'Credit',
+    date: '18.03.2024',
+    amount: '50.000',
+  },
+];
+
+export const menu: TPageCategory[] = [
   {
     title: 'Pages',
     list: [
@@ -71,5 +100,26 @@ export const menu: PageCategory[] = [
         icon: <MdHelpCenter />,
       },
     ],
+  },
+];
+
+export const cards: TCard[] = [
+  {
+    id: 1,
+    title: 'Total accounts',
+    number: '69',
+    change: 2,
+  },
+  {
+    id: 2,
+    title: 'Current balance',
+    number: '69.225',
+    change: -2,
+  },
+  {
+    id: 3,
+    title: 'Total debt',
+    number: '6.642',
+    change: 18,
   },
 ];

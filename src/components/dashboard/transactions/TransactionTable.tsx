@@ -1,5 +1,6 @@
 import { NoAvatar } from '../../../../public/assets';
-import { transactions } from '@/data/TransactionTable';
+import { transactions } from '@/data/data';
+import { TTransaction } from '@/types/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsEye } from 'react-icons/bs';
@@ -32,7 +33,7 @@ export default function TransactionTable() {
           </tr>
         </thead>
         <tbody>
-          {transactions.map((transaction) => (
+          {transactions.map((transaction: TTransaction) => (
             <tr
               key={transaction.id}
               className='border-b capitalize transition-all hover:bg-hover dark:border-gray-700 dark:bg-gray-800'

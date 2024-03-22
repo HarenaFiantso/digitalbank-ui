@@ -1,11 +1,11 @@
 'use client';
 
-import { MenuItem } from '@/types/MenuItem';
+import { TPageItem } from '@/types/types';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
-export default function MenuLink({ item }: { item: MenuItem }) {
+export default function MenuLink({ item }: { item: TPageItem }) {
   const pathname = usePathname();
 
   return (

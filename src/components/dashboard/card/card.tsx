@@ -1,7 +1,7 @@
-import { CardProps } from '@/types/DashboardCard';
+import { TCardProps } from '@/types/types';
 import { MdSupervisedUserCircle } from 'react-icons/md';
 
-export default function Card({ item }: CardProps) {
+export default function Card({ item }: TCardProps) {
   return (
     <div className='flex h-max w-max cursor-pointer gap-5 rounded-xl bg-main-soft p-5 transition-all hover:bg-hover'>
       <MdSupervisedUserCircle size={24} className='text-blue' />
