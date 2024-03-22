@@ -17,11 +17,11 @@ export default function AddAccount() {
               </div>
               <div>
                 <label htmlFor="lastName" className="block text-sm font-medium text-white">Last Name</label>
-                <input type="text" id="firstName" name="firstName"
+                <input type="text" id="lastName" name="lastName"
                        className="mt-1 p-2 w-full outline-none rounded-md bg-hover " />
               </div>
               <div>
-                <label htmlFor="Birth date" className="block text-sm font-medium text-white">Birth Date</label>
+                <label htmlFor="birthDate" className="block text-sm font-medium text-white">Birth Date</label>
                 <input type="date" id="birthDate" name="birthDate"
                        className="mt-1 p-2 w-full outline-none rounded-md bg-hover " />
               </div>
@@ -30,24 +30,10 @@ export default function AddAccount() {
                 <input type="text" id="monthlySalary" name="monthlySalary"
                        className="mt-1 p-2 w-full outline-none rounded-md bg-hover " />
               </div>
-              <div className='flex justify-between'>
-                <label htmlFor="overDrafted" className="block text-sm font-medium text-white">Over drafted</label>
-                <div className="flex items-center">
-                  <input id="true" type="radio" name="overDraftedTrue"
-                         className="hidden checked:bg-no-repeat checked:bg-center checked:border-blue-500 checked:bg-blue-100" />
-                  <label htmlFor="OverDraftedTrue"
-                         className="flex items-center cursor-pointer text-gray-600 text-sm font-normal whitespace-nowrap">
-                    <span className="border border-gray-300  rounded-full mr-2 w-4 h-4 "></span> True
-                  </label>
-                </div>
-                <div className="flex items-center">
-                  <input id="true" type="radio" name="overDraftedTrue"
-                         className="hidden checked:bg-no-repeat checked:bg-center checked:border-blue-500 checked:bg-blue-100" />
-                  <label htmlFor="OverDraftedFalse"
-                         className="flex items-center cursor-pointer text-gray-600 text-sm font-normal whitespace-nowrap">
-                    <span className="border border-gray-300  rounded-full mr-2 w-4 h-4 "></span> False
-                  </label>
-                </div>
+              <div>
+                <label htmlFor="monthlySalary" className="block text-sm font-medium text-white">Over Drafted <span className='text-gray-500 text-xs '>(True or False)</span> </label>
+                <input type="text" id="monthlySalary" name="monthlySalary"
+                       className="mt-1 p-2 w-full outline-none rounded-md bg-hover " />
               </div>
               <div>
                 <button type="submit"
@@ -56,6 +42,7 @@ export default function AddAccount() {
                 </button>
               </div>
             </form>
+
             <div className="mt-10 text-sm text-gray-500 text-center">
               <p>Already have an account? <Link href={'/chooseAccount'} className="text-blue hover:underline">Choose
                 here</Link>
