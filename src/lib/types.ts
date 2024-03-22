@@ -1,6 +1,6 @@
+import { accountSchema } from '@/lib/validations/accountSchema';
 import { ReactElement } from 'react';
 import { z } from 'zod';
-import { accountSchema } from '@/lib/validations/accountSchema';
 
 export type TAccount = {
   idAccount: string;
@@ -42,4 +42,4 @@ export type TTransaction = {
   amount: string;
 };
 
-export type TAccountSchema = z.infer<typeof accountSchema>
+export type TAccountSchema = z.infer<typeof accountSchema>;
