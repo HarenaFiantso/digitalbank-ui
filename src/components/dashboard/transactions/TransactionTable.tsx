@@ -1,6 +1,6 @@
 import { NoAvatar } from '../../../../public/assets';
 import { transactions } from '@/data/data';
-import { TTransaction } from '@/types/types';
+import { TTransaction } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsEye } from 'react-icons/bs';

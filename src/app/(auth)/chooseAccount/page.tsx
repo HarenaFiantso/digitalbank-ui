@@ -1,8 +1,8 @@
 'use client';
 
 import { AccountNotFount, AddAccount, NoAvatar } from '../../../../public/assets';
-import { fetchAccounts } from '@/api/Accounts';
-import { TAccount } from '@/types/types';
+import { fetchAccounts } from '@/lib/api/Accounts';
+import { TAccount } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -30,7 +30,7 @@ export default function ChooseAccount() {
           </h1>
           <div className='rounded-2xl bg-main-soft px-5 py-2 shadow-2xl'>
             {accounts.length === 0 ? (
-              <div className='flex p-10 flex-col items-center gap-5'>
+              <div className='flex flex-col items-center gap-5 p-10'>
                 <Image src={AccountNotFount} alt='account not found' width={500} height={500} />
                 <h1>No account found</h1>
               </div>

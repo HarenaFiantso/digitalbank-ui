@@ -2,7 +2,7 @@ import { Money } from '../../../public/assets';
 import Card from '@/components/dashboard/card/card';
 import TransactionTable from '@/components/dashboard/transactions/TransactionTable';
 import { cards } from '@/data/data';
-import { TCard } from '@/types/types';
+import { TCard } from '@/lib/types';
 import Image from 'next/image';
 import { BiDownload } from 'react-icons/bi';
 

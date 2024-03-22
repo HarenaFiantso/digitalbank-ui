@@ -1,4 +1,4 @@
-import { TCardProps } from '@/types/types';
+import { TCardProps } from '@/lib/types';
 import { MdSupervisedUserCircle } from 'react-icons/md';
 
 export default function Card({ item }: TCardProps) {

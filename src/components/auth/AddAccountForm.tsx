@@ -1,23 +1,9 @@
 'use client';
 
+import { accountSchema } from '@/lib/validations/accountSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-
-const today: Date = new Date();
-const date21YearsAgo: Date = new Date(today.getFullYear() - 21, today.getMonth(), today.getDate());
-
-const addAccountSchema = z.object({
-  firstName: z.string(),
-  lastName: z.string(),
-  birthDate: z.date().refine((date: Date) => date <= date21YearsAgo, {
-    message: 'You should have at least 21 years old',
-  }),
-  monthlySalary: z.number(),
-  overDrafted: z.boolean(),
-});
-
-type TAddAccountSchema = z.infer<typeof addAccountSchema>;
+import { TAccountSchema } from '@/lib/types';
 
 export default function AddAccountForm() {
   const {
@@ -25,66 +11,92 @@ export default function AddAccountForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<TAddAccountSchema>({
-    resolver: zodResolver(addAccountSchema),
+  } = useForm<TAccountSchema>({
+    resolver: zodResolver(accountSchema),
   });
 
-  const onSubmit = async (data: TAddAccountSchema) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
-    reset();
+  const onSubmit = async (data: TAccountSchema) => {
+    try {
+      const response: Response = await fetch('http://localhost:8080/account', {
+        method: 'PUT',
+        body: JSON.stringify([data]),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) {
+        console.error(`HTTP error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      console.log('Success:', result);
+
+      reset();
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
-      <div>
-        <label htmlFor='firstName' className='block text-sm font-medium text-white'>
-          First name
-        </label>
-        <input {...register('firstName')} type='text' className='mt-1 w-full rounded-md bg-hover p-2 outline-none ' />
-        {errors.firstName && <p className='text-xs text-red-500'>{`${errors.firstName.message}`}</p>}
-      </div>
-      <div>
-        <label htmlFor='lastName' className='block text-sm font-medium text-white'>
-          Last Name
-        </label>
-        <input {...register('lastName')} type='text' className='mt-1 w-full rounded-md bg-hover p-2 outline-none ' />
-        {errors.lastName && <p className='text-xs text-red-500'>{`${errors.lastName.message}`}</p>}
-      </div>
-      <div>
-        <label htmlFor='birthDate' className='block text-sm font-medium text-white'>
-          Birth Date
-        </label>
-        <input {...register('birthDate')} type='date' className='mt-1 w-full rounded-md bg-hover p-2 outline-none ' />
-        {errors.birthDate && <p className='text-xs text-red-500'>{`${errors.birthDate.message}`}</p>}
-      </div>
-      <div>
-        <label htmlFor='monthlySalary' className='block text-sm font-medium text-white'>
-          Monthly Salary
-        </label>
-        <input
-          {...register('monthlySalary')}
-          type='number'
-          className='mt-1 w-full rounded-md bg-hover p-2 outline-none '
-        />
-        {errors.monthlySalary && <p className='text-xs text-red-500'>{`${errors.monthlySalary.message}`}</p>}
-      </div>
-      <div>
-        <label htmlFor='overDrafted' className='block text-sm font-medium text-white'>
-          Over Drafted <span className='text-xs text-gray-500 '>(True or False)</span>{' '}
-        </label>
-        <input {...register('overDrafted')} type='text' className='mt-1 w-full rounded-md bg-hover p-2 outline-none ' />
-        {errors.overDrafted && <p className='text-xs text-red-500'>{`${errors.overDrafted.message}`}</p>}
-      </div>
-      <div>
-        <button
-          disabled={isSubmitting}
-          type='submit'
-          className='w-full rounded-md bg-blue p-2 text-white transition-colors duration-300 hover:bg-gray-800 focus:bg-black focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2'
-        >
-          Create account
-        </button>
-      </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <label htmlFor="firstName" className="block text-sm font-medium text-white">
+        First name
+      </label>
+      <input
+        {...register('firstName')}
+        id="firstName"
+        type="text"
+        className="mt-1 w-full rounded-md bg-hover p-2 outline-none "
+      />
+      {errors.firstName?.message && <span className="text-xs text-red-500">{errors.firstName?.message}</span>}
+
+      <label htmlFor="lastName" className="block text-sm font-medium text-white">
+        Last Name
+      </label>
+      <input
+        {...register('lastName')}
+        id="lastName"
+        type="text"
+        className="mt-1 w-full rounded-md bg-hover p-2 outline-none "
+      />
+      {errors.lastName?.message && <span className="text-xs text-red-500">{errors.lastName?.message}</span>}
+
+      <label htmlFor="birthDate" className="block text-sm font-medium text-white">
+        Birth Date
+      </label>
+      <input {...register('birthDate')} type="date" className="mt-1 w-full rounded-md bg-hover p-2 outline-none " />
+      {errors.birthDate?.message && <span className="text-xs text-red-500">{errors.birthDate?.message}</span>}
+
+      <label htmlFor="monthlySalary" className="block text-sm font-medium text-white">
+        Monthly Salary
+      </label>
+      <input
+        {...register('monthlySalary')}
+        id="monthlySalary"
+        type="number"
+        className="mt-1 w-full rounded-md bg-hover p-2 outline-none "
+      />
+      {errors.monthlySalary?.message && <span className="text-xs text-red-500">{errors.monthlySalary?.message}</span>}
+
+      <label htmlFor="overDrafted" className="block text-sm font-medium text-white">
+        Over Drafted <span className="text-xs text-gray-500 ">(True or False)</span>{' '}
+      </label>
+      <select
+        {...register('overDrafted')}
+        id="overDrafted"
+        className="mt-1 w-full rounded-md bg-hover p-2 outline-none"
+      >
+        <option value="true">True</option>
+        <option value="false">False</option>
+      </select>
+      {errors.overDrafted?.message && <span className="text-xs text-red-500">{errors.overDrafted?.message}</span>}
+
+      <button
+        disabled={isSubmitting}
+        type="submit"
+        className="w-full rounded-md bg-blue p-2 text-white transition-colors duration-300 hover:bg-gray-800 focus:bg-black focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+      >
+        Create account
+      </button>
     </form>
   );
 }

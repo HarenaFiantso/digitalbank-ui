@@ -1,6 +1,6 @@
-import { TCard } from '@/types/types';
-import { TPageCategory } from '@/types/types';
-import { TTransaction } from '@/types/types';
+import { TCard } from '@/lib/types';
+import { TPageCategory } from '@/lib/types';
+import { TTransaction } from '@/lib/types';
 import {
   MdAnalytics,
   MdAttachMoney,

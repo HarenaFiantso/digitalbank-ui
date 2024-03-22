@@ -1,6 +1,6 @@
 'use client';
 
-import { TPageItem } from '@/types/types';
+import { TPageItem } from '@/lib/types';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';

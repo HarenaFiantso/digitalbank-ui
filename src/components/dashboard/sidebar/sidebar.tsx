@@ -1,7 +1,7 @@
 import { NoAvatar } from '../../../../public/assets';
 import MenuLink from '@/components/dashboard/sidebar/menuLink';
 import { menu } from '@/data/data';
-import { TPageCategory } from '@/types/types';
+import { TPageCategory } from '@/lib/types';
 import Image from 'next/image';
 
 export default function Sidebar() {
