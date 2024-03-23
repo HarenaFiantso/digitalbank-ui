@@ -3,8 +3,8 @@
 import { TAccountSchema } from '@/lib/types';
 import { accountSchema } from '@/lib/validations/accountSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
 
 export default function AddAccountForm() {
   const router = useRouter();
@@ -29,7 +29,7 @@ export default function AddAccountForm() {
       if (!response.ok) {
         console.error(`HTTP error! status: ${response.status}`);
       } else {
-        router.push("/chooseAccount")
+        router.push('/chooseAccount');
       }
       const result = await response.json();
       console.log('Success:', result);

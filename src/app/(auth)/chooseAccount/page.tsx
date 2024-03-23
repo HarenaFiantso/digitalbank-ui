@@ -3,12 +3,15 @@
 import { AccountNotFount, AddAccount, NoAvatar } from '../../../../public/assets';
 import { deleteAccount, fetchAccounts } from '@/lib/api/Accounts';
 import { TAccount } from '@/lib/types';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
 
 export default function ChooseAccount() {
+  const router: AppRouterInstance = useRouter();
   const [accounts, setAccounts] = useState<TAccount[]>([]);
   useEffect(() => {
     fetchAccounts().then(setAccounts);
@@ -49,6 +52,7 @@ export default function ChooseAccount() {
                 <div
                   key={account.idAccount}
                   className='my-6 flex cursor-pointer items-center justify-between rounded-xl px-5 py-2 transition-all hover:bg-hover'
+                  onClick={() => router.push(`/dashboard/${account.idAccount}`)}
                 >
                   <div className='flex items-center gap-5'>
                     <Image src={NoAvatar} alt='avatar' width={50} height={50} className='rounded-full object-cover' />
@@ -58,7 +62,10 @@ export default function ChooseAccount() {
                   </div>
                   <div
                     className='rounded-full bg-hover p-3 hover:bg-gray-800'
-                    onClick={() => handleDelete(account.idAccount)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDelete(account.idAccount);
+                    }}
                   >
                     <BiTrash size={20} className='text-red-500' />
                   </div>

@@ -1,4 +1,4 @@
-import { Money } from '../../../public/assets';
+import { Money } from '../../../../public/assets';
 import Card from '@/components/dashboard/card/card';
 import TransactionTable from '@/components/dashboard/transactions/TransactionTable';
 import { cards } from '@/data/data';
