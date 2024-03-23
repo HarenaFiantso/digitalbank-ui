@@ -6,7 +6,6 @@ import { MdNotifications, MdOutlineChat, MdPublic, MdSearch } from 'react-icons/
 export default function Navbar() {
   const pathname: string[] = usePathname().split('/');
   const pageTitle: string = pathname[1];
-  console.log(pageTitle);
 
   return (
     <div className='flex items-center justify-between rounded bg-main-soft p-5'>

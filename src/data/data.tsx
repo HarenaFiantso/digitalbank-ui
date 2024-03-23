@@ -1,12 +1,12 @@
 import { TCard } from '@/lib/types';
 import { TPageCategory } from '@/lib/types';
 import { TTransaction } from '@/lib/types';
+import { HiOutlineLogout } from 'react-icons/hi';
 import {
   MdAnalytics,
   MdAttachMoney,
   MdDashboard,
   MdFormatListBulleted,
-  MdHelpCenter,
   MdOutlineSettings,
   MdOutlineTransferWithinAStation,
   MdPeople,
@@ -95,9 +95,9 @@ export const menu: TPageCategory[] = [
         icon: <MdOutlineSettings />,
       },
       {
-        title: 'User 2',
-        path: '/dashboard/user-2',
-        icon: <MdHelpCenter />,
+        title: 'Log Out',
+        path: '/chooseAccount',
+        icon: <HiOutlineLogout />,
       },
     ],
   },

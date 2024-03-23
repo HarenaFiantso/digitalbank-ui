@@ -1,5 +1,5 @@
 import { accountSchema } from '@/lib/validations/accountSchema';
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { z } from 'zod';
 
 export type TAccount = {
