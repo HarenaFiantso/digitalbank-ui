@@ -7,6 +7,13 @@ export const fetchAccounts = async (): Promise<TAccount[]> => {
   return await response.json();
 };
 
+export const fetchAccount = async (idAccount: string) => {
+  const response: Response = await fetch(`http://localhost:8080/account/${idAccount}`, {
+    method: 'GET',
+  });
+  return await response.json();
+};
+
 export const deleteAccount = async (idAccount: string) => {
   try {
     const response: Response = await fetch(`http://localhost:8080/account/${idAccount}`, {

@@ -1,3 +1,5 @@
+'use client'
+
 import { TCard } from '@/lib/types';
 import { TPageCategory } from '@/lib/types';
 import { TTransaction } from '@/lib/types';
@@ -40,28 +42,29 @@ export const transactions: TTransaction[] = [
   },
 ];
 
+const idAccount = localStorage.getItem('idAccount');
 export const menu: TPageCategory[] = [
   {
     title: 'Pages',
     list: [
       {
         title: 'Dashboard',
-        path: '/dashboard',
+        path: `/dashboard/${idAccount}`,
         icon: <MdDashboard />,
       },
       {
         title: 'Transactions',
-        path: '/dashboard/transaction-list',
+        path: `/dashboard/${idAccount}/transaction-list`,
         icon: <MdFormatListBulleted />,
       },
       {
         title: 'Transfer',
-        path: '/dashboard/transfer-list',
+        path: `/dashboard/${idAccount}/transfer-list`,
         icon: <MdOutlineTransferWithinAStation />,
       },
       {
         title: 'Page 3',
-        path: '/dashboard/page-3',
+        path: `/dashboard/${idAccount}/page-3`,
         icon: <MdAttachMoney />,
       },
     ],
