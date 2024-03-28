@@ -4,11 +4,20 @@ import { Money } from '../../../public/assets';
 import Card from '@/components/dashboard/card/card';
 import TransactionTable from '@/components/dashboard/transactions/TransactionTable';
 import { cards } from '@/data/data';
-import { TCard } from '@/lib/types';
+import { fetchAccount } from '@/lib/api/Accounts';
+import { TAccount, TCard } from '@/lib/types';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { BiDownload } from 'react-icons/bi';
 
 export default function Dashboard() {
+  const idAccount: string | null = localStorage.getItem('idAccount');
+  const [account, setAccount] = useState<TAccount | undefined>();
+
+  useEffect(() => {
+    fetchAccount(idAccount).then(setAccount);
+  }, [idAccount]);
+
   return (
     <div className='mt-5'>
       <div className='flex flex-wrap justify-between'>
@@ -16,7 +25,9 @@ export default function Dashboard() {
           <div className='flex items-center justify-between gap-5'>
             <div>
               <p className='font-bold text-blue'>Welcome back,</p>
-              <p className='mb-5 text-2xl'>Fiantso Harena</p>
+              <p className='mb-5 text-2xl capitalize'>
+                {account?.firstName} {account?.lastName}
+              </p>
               <p className='text-sm text-light'>Download your latest statement</p>
             </div>
             <Image src={Money} width={100} height={100} alt='money' />

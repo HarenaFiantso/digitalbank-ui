@@ -9,16 +9,20 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-export default function Sidebar() {
+export default function Sidebar({ account }: { account: TAccount | undefined }) {
+  console.log(account);
   return (
     <div className='sticky top-0 h-full p-8'>
       <div className='mb-5 flex items-center gap-5'>
         <Image className='rounded-full' src={NoAvatar} alt='Avatar' width='50' height='50' />
         <div className='flex flex-col gap-2'>
-          <span className='text-lg font-semibold'>
-            Fiantso Harena🍔
+          <span className='text-lg font-semibold capitalize'>
+            {account?.firstName} {account?.lastName} 🍔
           </span>
-          <span className='text-sm font-medium lowercase text-[#b7bac1]'>@HarenaFiantso</span>
+          <span className='text-sm font-medium lowercase text-[#b7bac1]'>
+            @{account?.lastName}
+            {account?.firstName}
+          </span>
         </div>
       </div>
       <ul>

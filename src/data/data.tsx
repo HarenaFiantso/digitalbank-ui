@@ -48,7 +48,7 @@ export const menu: TPageCategory[] = [
     list: [
       {
         title: 'Dashboard',
-        path: `/dashboard/`,
+        path: `/dashboard`,
         icon: <MdDashboard />,
       },
       {
