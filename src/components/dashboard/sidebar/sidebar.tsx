@@ -14,7 +14,7 @@ export default function Sidebar() {
 
   const pathname: string = usePathname();
   const idAccount: string = pathname.split('/')[2];
-  localStorage.setItem('idAccount', idAccount)
+  localStorage.setItem('idAccount', idAccount);
 
   useEffect(() => {
     fetchAccount(idAccount).then(setAccount);

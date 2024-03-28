@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Money } from '../../../../public/assets';
 import Card from '@/components/dashboard/card/card';

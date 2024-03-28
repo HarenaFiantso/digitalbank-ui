@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { TCard } from '@/lib/types';
 import { TPageCategory } from '@/lib/types';
