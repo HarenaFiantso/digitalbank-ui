@@ -10,25 +10,15 @@ import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 export default function Sidebar() {
-  const [account, setAccount] = useState<TAccount | undefined>();
-
-  const pathname: string = usePathname();
-  const idAccount: string = pathname.split('/')[2];
-  localStorage.setItem('idAccount', idAccount);
-
-  useEffect(() => {
-    fetchAccount(idAccount).then(setAccount);
-  }, [idAccount]);
-
   return (
     <div className='sticky top-0 h-full p-8'>
       <div className='mb-5 flex items-center gap-5'>
         <Image className='rounded-full' src={NoAvatar} alt='Avatar' width='50' height='50' />
         <div className='flex flex-col gap-2'>
           <span className='text-lg font-semibold'>
-            {account?.firstName} {account?.lastName}🍔
+            Fiantso Harena🍔
           </span>
-          <span className='text-sm font-medium lowercase text-[#b7bac1]'>@{account?.firstName}</span>
+          <span className='text-sm font-medium lowercase text-[#b7bac1]'>@HarenaFiantso</span>
         </div>
       </div>
       <ul>

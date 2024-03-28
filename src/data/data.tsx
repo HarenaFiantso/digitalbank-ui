@@ -42,29 +42,28 @@ export const transactions: TTransaction[] = [
   },
 ];
 
-const idAccount = localStorage.getItem('idAccount');
 export const menu: TPageCategory[] = [
   {
     title: 'Pages',
     list: [
       {
         title: 'Dashboard',
-        path: `/dashboard/${idAccount}`,
+        path: `/dashboard/`,
         icon: <MdDashboard />,
       },
       {
         title: 'Transactions',
-        path: `/dashboard/${idAccount}/transaction-list`,
+        path: `/dashboard/transaction-list`,
         icon: <MdFormatListBulleted />,
       },
       {
         title: 'Transfer',
-        path: `/dashboard/${idAccount}/transfer-list`,
+        path: `/dashboard/transfer-list`,
         icon: <MdOutlineTransferWithinAStation />,
       },
       {
         title: 'Page 3',
-        path: `/dashboard/${idAccount}/page-3`,
+        path: `/dashboard/page-3`,
         icon: <MdAttachMoney />,
       },
     ],

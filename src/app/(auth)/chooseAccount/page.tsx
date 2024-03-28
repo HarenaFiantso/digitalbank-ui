@@ -30,8 +30,8 @@ export default function ChooseAccount() {
   return (
     <div className='flex h-screen'>
       <div className='hidden flex-1 items-center justify-center bg-main-soft text-white lg:flex'>
-        <div className='w-2/4 text-center'>
-          <Image src={AddAccount} alt='add account' />
+        <div className='w-3/4 text-center'>
+          <Image src={AddAccount} alt='add account' unoptimized={false} />
         </div>
       </div>
 
@@ -52,7 +52,10 @@ export default function ChooseAccount() {
                 <div
                   key={account.idAccount}
                   className='my-6 flex cursor-pointer items-center justify-between rounded-xl px-5 py-2 transition-all hover:bg-hover'
-                  onClick={() => router.push(`/dashboard/${account.idAccount}`)}
+                  onClick={() => {
+                    localStorage.setItem('idAccount', account.idAccount);
+                    router.push('/dashboard');
+                  }}
                 >
                   <div className='flex items-center gap-5'>
                     <Image src={NoAvatar} alt='avatar' width={50} height={50} className='rounded-full object-cover' />
@@ -64,7 +67,7 @@ export default function ChooseAccount() {
                     className='rounded-full bg-hover p-3 hover:bg-gray-800'
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleDelete(account.idAccount);
+                      handleDelete(account.idAccount).then((r: void) => console.log(r));
                     }}
                   >
                     <BiTrash size={20} className='text-red-500' />
