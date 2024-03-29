@@ -18,7 +18,7 @@ export default function Sidebar({ account }: { account: TAccount | undefined }) 
           <span className='text-lg font-semibold capitalize'>
             {account?.firstName} {account?.lastName} 🍔
           </span>
-          <span className='text-sm font-medium lowercase text-[#b7bac1] flex-wrap'>
+          <span className='flex-wrap text-sm font-medium lowercase text-[#b7bac1]'>
             @{account?.lastName}
             {account?.firstName}
           </span>

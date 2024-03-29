@@ -16,7 +16,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className='flex'>
-      <div style={{ flex: 1 }} className='h-screen sticky top-0 bg-main-soft'>
+      <div style={{ flex: 1 }} className='sticky top-0 h-screen bg-main-soft'>
         <Sidebar account={account} />
       </div>
       <div style={{ flex: 4 }} className='overflow-hidden p-5'>

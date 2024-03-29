@@ -7,9 +7,15 @@ export type TAccount = {
   firstName: string;
   lastName: string;
   birthDate: Date;
-  monthlySalary: DoubleRange;
+  monthlySalary: number;
   overDrafted: boolean;
 };
+
+export type TBalance = {
+  idBalance: string;
+  idAccount: string;
+  currentBalance: number
+}
 
 export type TCard = {
   id: number;
@@ -34,12 +40,21 @@ export type TPageCategory = {
 };
 
 export type TTransaction = {
-  id: number;
-  name: string;
+  idTransaction: string;
+  account: TAccount;
+  category: TCategory;
   reason: string;
   type: string;
-  date: string;
+  transactionDatetime: Date;
+  transactionType: string;
   amount: string;
+  transfer: null;
+};
+
+export type TCategory = {
+  idTransactionCategory: string;
+  name: string;
+  description: string;
 };
 
 export type TAccountSchema = z.infer<typeof accountSchema>;

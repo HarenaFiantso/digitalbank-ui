@@ -3,7 +3,7 @@ import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } f
 
 export default function Chart() {
   return (
-    <div className='mt-5 h-[450px] rounded-lg bg-main-soft p-5'>
+    <div className='my-5 h-[450px] py-5'>
       <h2 className='my-5 text-xl font-semibold text-blue'>Weekly recapitulation ✅</h2>
       <ResponsiveContainer>
         <LineChart

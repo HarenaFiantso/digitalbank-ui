@@ -42,7 +42,7 @@ export default function MenuLink({ item }: { item: TPageItem }) {
   return (
     <Link
       href={item.path}
-      className={`text-md capitalize my-[5px] flex items-center gap-[10px] rounded-[10px] p-[20px] transition-all hover:bg-hover ${
+      className={`text-md my-[5px] flex items-center gap-[10px] rounded-[10px] p-[20px] capitalize transition-all hover:bg-hover ${
         pathname === item.path && 'bg-hover'
       }`}
     >

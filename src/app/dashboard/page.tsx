@@ -4,9 +4,8 @@ import { Money } from '../../../public/assets';
 import Card from '@/components/dashboard/card/card';
 import Chart from '@/components/dashboard/chart/chart';
 import TransactionTable from '@/components/dashboard/transactions/TransactionTable';
-import { cards } from '@/data/data';
 import { fetchAccount } from '@/lib/api/Accounts';
-import { TAccount, TCard } from '@/lib/types';
+import { TAccount } from '@/lib/types';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { BiDownload } from 'react-icons/bi';
@@ -40,9 +39,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className='flex justify-between gap-5'>
-          {cards.map((item: TCard) => (
-            <Card item={item} key={item.id} />
-          ))}
+            <Card />
         </div>
       </div>
       <TransactionTable />

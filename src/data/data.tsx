@@ -2,7 +2,6 @@
 
 import { TCard } from '@/lib/types';
 import { TPageCategory } from '@/lib/types';
-import { TTransaction } from '@/lib/types';
 import { HiOutlineLogout } from 'react-icons/hi';
 import {
   MdAnalytics,
@@ -14,34 +13,6 @@ import {
   MdPeople,
   MdWork,
 } from 'react-icons/md';
-
-/* ===== Mock transactions ===== */
-export const transactions: TTransaction[] = [
-  {
-    id: 1,
-    name: 'Fiantso',
-    reason: 'troubleshooting',
-    type: 'Income',
-    date: '18.03.2024',
-    amount: '38.000',
-  },
-  {
-    id: 2,
-    name: 'Tanjona',
-    reason: 'Smatchin ticket',
-    type: 'Expense',
-    date: '18.03.2024',
-    amount: '3.000',
-  },
-  {
-    id: 3,
-    name: 'Tendry',
-    reason: 'Alcohol',
-    type: 'Expense',
-    date: '18.03.2024',
-    amount: '50.000',
-  },
-];
 
 /* ===== Menu links ===== */
 export const menu: TPageCategory[] = [
