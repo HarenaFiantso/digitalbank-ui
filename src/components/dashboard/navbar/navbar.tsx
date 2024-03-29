@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <div className='flex items-center justify-between rounded bg-main-soft p-5'>
-      <div className='text-xl font-bold capitalize text-blue'>{pageTitle || "Dashboard"}</div>
+      <div className='text-xl font-bold capitalize text-blue'>{pageTitle || 'Dashboard'}</div>
       <div className='flex items-center gap-5'>
         <div className='flex justify-between gap-5'>
           <button onClick={() => toast('Soon !')}>
