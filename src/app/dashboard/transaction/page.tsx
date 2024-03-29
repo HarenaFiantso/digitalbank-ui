@@ -1,20 +1,23 @@
 'use client';
 
 import { NoAvatar, NoTransaction } from '../../../../public/assets';
-import { deleteTransaction, fetchTransactions } from '@/lib/api/Transactions';
+import { deleteTransaction } from '@/lib/api/Transactions';
 import { TTransaction } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
+import { fetchTransactionsByIdAccount } from '@/lib/api/Accounts';
 
 export default function TransactionList() {
   const [transactions, setTransactions] = useState<TTransaction[]>([]);
+  const idAccount: string | null = localStorage.getItem('idAccount');
 
   useEffect(() => {
-    fetchTransactions().then(setTransactions);
-  }, []);
+    fetchTransactionsByIdAccount(idAccount).then(setTransactions);
+  }, [idAccount]);
 
+  console.log(idAccount);
   const handleDelete = async (idTransaction: string) => {
     try {
       await deleteTransaction(idTransaction);
@@ -37,31 +40,6 @@ export default function TransactionList() {
       {transactions.length > 0 ? (
         transactions.map((transaction: TTransaction) => (
           <table key={transaction.idTransaction} className='w-full text-left text-sm text-gray-500 rtl:text-right'>
-            <thead className='bg-main-soft text-xs uppercase text-gray-300'>
-              <tr>
-                <th scope='col' className='px-6 py-3'>
-                  Account name
-                </th>
-                <th scope='col' className='px-6 py-3'>
-                  Reason
-                </th>
-                <th scope='col' className='px-6 py-3'>
-                  Transaction type
-                </th>
-                <th scope='col' className='px-6 py-3'>
-                  Date
-                </th>
-                <th scope='col' className='px-6 py-3'>
-                  Category
-                </th>
-                <th scope='col' className='px-6 py-3'>
-                  Amount
-                </th>
-                <th scope='col' className='px-6 py-3'>
-                  <span className='sr-only'>Edit</span>
-                </th>
-              </tr>
-            </thead>
             <tbody>
               <tr
                 key={transaction.idTransaction}
