@@ -39,7 +39,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className='flex justify-between gap-5'>
-            <Card />
+          <Card />
         </div>
       </div>
       <TransactionTable />

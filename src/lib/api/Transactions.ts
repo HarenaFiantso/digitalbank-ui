@@ -16,3 +16,18 @@ export const fetchTransactions = async () => {
     return [];
   }
 };
+
+export const deleteTransaction = async (idTransaction: string) => {
+  try {
+    const response: Response = await fetch(`${API_BASE_URL}/${idTransaction}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      console.log('Transaction deleted successfully');
+    } else {
+      console.error('Failed to delete transaction');
+    }
+  } catch (error) {
+    console.error('Failed to delete transaction', error);
+  }
+};

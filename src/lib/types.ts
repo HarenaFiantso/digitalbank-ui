@@ -14,8 +14,8 @@ export type TAccount = {
 export type TBalance = {
   idBalance: string;
   idAccount: string;
-  currentBalance: number
-}
+  currentBalance: number;
+};
 
 export type TCard = {
   id: number;

@@ -1,9 +1,12 @@
-import { NoAvatar } from '../../../../public/assets';
-import { fetchTransactions } from '@/lib/api/Transactions';
+'use client';
+
+import { NoAvatar, NoTransaction } from '../../../../public/assets';
+import { deleteTransaction, fetchTransactions } from '@/lib/api/Transactions';
 import { TTransaction } from '@/lib/types';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
+import Link from 'next/link';
 
 export default function TransactionTable() {
   const [transactions, setTransactions] = useState<TTransaction[]>([]);
@@ -12,11 +15,22 @@ export default function TransactionTable() {
     fetchTransactions().then(setTransactions);
   }, []);
 
+  const handleDelete = async (idTransaction: string) => {
+    try {
+      await deleteTransaction(idTransaction);
+      setTransactions(transactions.filter((transaction: TTransaction) => transaction.idTransaction !== idTransaction));
+      console.log('Transaction deleted successfully');
+    } catch (error) {
+      console.error('Failed to delete transaction', error);
+    }
+  };
+
   return (
-    <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
+    <div className='relative overflow-x-auto sm:rounded-lg'>
       <h2 className='my-5 text-xl font-semibold text-blue'>Latest transactions 🚀</h2>
-      <table className='w-full text-left text-sm text-gray-500 rtl:text-right'>
-        <thead className='bg-main-soft text-xs uppercase text-gray-300'>
+      {transactions.length > 0 ? (transactions.map((transaction: TTransaction) => (
+        <table key={transaction.idTransaction} className='w-full text-left text-sm text-gray-500 rtl:text-right'>
+          <thead className='bg-main-soft text-xs uppercase text-gray-300'>
           <tr>
             <th scope='col' className='px-6 py-3'>
               Account name
@@ -40,43 +54,56 @@ export default function TransactionTable() {
               <span className='sr-only'>Edit</span>
             </th>
           </tr>
-        </thead>
-        <tbody>
-          {transactions.map((transaction: TTransaction) => (
-            <tr
-              key={transaction.idTransaction}
-              className='border-b capitalize transition-all hover:bg-hover dark:border-gray-700 dark:bg-gray-800'
-            >
-              <th scope='row' className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
-                <div className='flex items-center gap-5 '>
-                  <Image src={NoAvatar} alt='avatar' width={40} height={40} className='rounded-full object-cover' />
-                  <h2>{transaction.account.firstName}</h2>
-                </div>
-              </th>
-              <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
-                {transaction.reason}
-              </th>
-              <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
-                {transaction.transactionType}
-              </th>
-              <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
-                {transaction.transactionDatetime.toString()}
-              </th>
-              <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
-                {transaction.category.name}
-              </th>
-              <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
-                {transaction.amount} <span className='text-blue'>MGA</span>
-              </th>
-              <td className='px-6 py-4 text-right'>
-                <button className='font-bold text-red-500'>
-                  <BiTrash size={20} />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+          <tr
+            key={transaction.idTransaction}
+            className='border-b capitalize transition-all hover:bg-hover dark:border-gray-700 dark:bg-gray-800'
+          >
+            <th scope='row' className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
+              <div className='flex items-center gap-5 '>
+                <Image src={NoAvatar} alt='avatar' width={40} height={40} className='rounded-full object-cover' />
+                <h2>{transaction.account.firstName}</h2>
+              </div>
+            </th>
+            <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
+              {transaction.reason}
+            </th>
+            <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
+              {transaction.transactionType}
+            </th>
+            <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
+              {transaction.transactionDatetime.toString()}
+            </th>
+            <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
+              {transaction.category.name}
+            </th>
+            <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
+              {transaction.amount} <span className='text-blue'>MGA</span>
+            </th>
+            <td className='px-6 py-4 text-right'>
+              <button
+                className='font-bold text-red-500'
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDelete(transaction.idTransaction).then((r: void) => console.log(r));
+                }}
+              >
+                <BiTrash size={20} />
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      ))): (
+        <div className='flex flex-col justify-between items-center'>
+          <Image src={NoTransaction} width={300} height={300} alt='no transaction' />
+          <h1 className="font-bold text-gray-500">No Transaction found</h1>
+          <Link href={'/dashboard/transaction/makeTransaction'} className="mt-5 py-2 px-5 rounded-lg text-sm font-bold bg-blue hover:bg-hover transition-all">
+            New Transaction
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
