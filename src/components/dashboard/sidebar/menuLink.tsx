@@ -34,7 +34,7 @@ export default function MenuLink({ item }: { item: TPageItem }) {
           </span>{' '}
           {item.title}
         </button>
-        <ToastContainer autoClose={2000} />
+        <ToastContainer autoClose={2000} pauseOnFocusLoss pauseOnHover />
       </>
     );
   }

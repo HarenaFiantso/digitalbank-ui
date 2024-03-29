@@ -10,7 +10,6 @@ import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 export default function Sidebar({ account }: { account: TAccount | undefined }) {
-  console.log(account);
   return (
     <div className='sticky top-0 h-full p-8'>
       <div className='mb-5 flex items-center gap-5'>

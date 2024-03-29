@@ -1,22 +1,44 @@
 import { TAccount } from '@/lib/types';
 
+const API_BASE_URL: string = 'http://localhost:8080/account';
+
 export const fetchAccounts = async (): Promise<TAccount[]> => {
-  const response: Response = await fetch('http://localhost:8080/account', {
-    method: 'GET',
-  });
-  return await response.json();
+  try {
+    const response: Response = await fetch(`${API_BASE_URL}`, {
+      method: 'GET',
+    });
+    if (response.ok) {
+      return await response.json();
+    } else {
+      console.error('Failed to fetch accounts');
+      return [];
+    }
+  } catch (error) {
+    console.error('Error fetching accounts', error);
+    return [];
+  }
 };
 
 export const fetchAccount = async (idAccount: string | null) => {
-  const response: Response = await fetch(`http://localhost:8080/account/${idAccount}`, {
-    method: 'GET',
-  });
-  return await response.json();
+  try {
+    const response: Response = await fetch(`${API_BASE_URL}/${idAccount}`, {
+      method: 'GET',
+    });
+    if (response.ok) {
+      return await response.json();
+    } else {
+      console.error(`Failed to fetch account with ID ${idAccount}`);
+      return null;
+    }
+  } catch (error) {
+    console.error(`Error fetching account with ID ${idAccount}`, error);
+    return null;
+  }
 };
 
 export const deleteAccount = async (idAccount: string) => {
   try {
-    const response: Response = await fetch(`http://localhost:8080/account/${idAccount}`, {
+    const response: Response = await fetch(`${API_BASE_URL}/${idAccount}`, {
       method: 'DELETE',
     });
     if (response.ok) {

@@ -89,11 +89,11 @@ export const menu: TPageCategory[] = [
     ],
   },
   {
-    title: 'User',
+    title: 'Accounts',
     list: [
       {
-        title: 'User 1',
-        path: '/dashboard/user-1',
+        title: 'My Account',
+        path: '/dashboard/MyAccount',
         icon: <MdOutlineSettings />,
       },
       {
@@ -108,7 +108,7 @@ export const menu: TPageCategory[] = [
 export const cards: TCard[] = [
   {
     id: 1,
-    title: 'Total accounts',
+    title: 'Total Transactions',
     number: '69',
     change: 2,
   },

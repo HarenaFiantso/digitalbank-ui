@@ -5,9 +5,11 @@ import { accountSchema } from '@/lib/validations/accountSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { useState } from 'react';
 
 export default function AddAccountForm() {
-  const router = useRouter();
+  const router: AppRouterInstance = useRouter();
   const {
     register,
     handleSubmit,
