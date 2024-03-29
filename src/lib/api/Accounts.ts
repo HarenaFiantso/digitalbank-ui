@@ -50,3 +50,18 @@ export const deleteAccount = async (idAccount: string) => {
     console.error('Failed to delete account', error);
   }
 };
+
+export const fetchTransactionsByIdAccount = async (idAccount: string) => {
+  try {
+    const response: Response = await fetch(`${API_BASE_URL}/${idAccount}/transaction`, {
+      method: 'GET',
+    });
+    if (response.ok) {
+      console.log('Transaction by idAccount retrieved successfully');
+    } else {
+      console.error('Failed to retrieve transaction by idAccount');
+    }
+  } catch (error) {
+    console.error('Failed to retrieve transaction by idAccount', error);
+  }
+};
