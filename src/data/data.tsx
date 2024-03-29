@@ -54,8 +54,8 @@ export const menu: TPageCategory[] = [
         icon: <MdDashboard />,
       },
       {
-        title: 'Transactions',
-        path: `/dashboard/transaction-list`,
+        title: 'transaction',
+        path: `/dashboard/transaction`,
         icon: <MdFormatListBulleted />,
       },
       {
@@ -95,7 +95,7 @@ export const menu: TPageCategory[] = [
     list: [
       {
         title: 'My Account',
-        path: '/dashboard/MyAccount',
+        path: '/dashboard/myAccount',
         icon: <MdOutlineSettings />,
       },
       {
@@ -111,7 +111,7 @@ export const menu: TPageCategory[] = [
 export const cards: TCard[] = [
   {
     id: 1,
-    title: 'Total Transactions',
+    title: 'Total transaction',
     number: '69',
     change: 2,
   },
