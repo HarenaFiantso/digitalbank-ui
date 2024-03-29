@@ -11,7 +11,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function Sidebar({ account }: { account: TAccount | undefined }) {
   return (
-    <div className='sticky top-0 h-full p-8'>
+    <div className='fixed h-full bg-main-soft p-8'>
       <div className='mb-5 flex items-center gap-5'>
         <Image className='rounded-full' src={NoAvatar} alt='Avatar' width='50' height='50' />
         <div className='flex flex-col gap-2'>

@@ -2,6 +2,7 @@
 
 import { Money } from '../../../public/assets';
 import Card from '@/components/dashboard/card/card';
+import Chart from '@/components/dashboard/chart/chart';
 import TransactionTable from '@/components/dashboard/transactions/TransactionTable';
 import { cards } from '@/data/data';
 import { fetchAccount } from '@/lib/api/Accounts';
@@ -45,6 +46,7 @@ export default function Dashboard() {
         </div>
       </div>
       <TransactionTable />
+      <Chart />
     </div>
   );
 }

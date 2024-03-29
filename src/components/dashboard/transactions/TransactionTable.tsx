@@ -27,9 +27,6 @@ export default function TransactionTable() {
             <th scope='col' className='px-6 py-3'>
               Amount
             </th>
-            <th scope='col' className='px-6 py-3'>
-              <span className='sr-only'>Edit</span>
-            </th>
           </tr>
         </thead>
         <tbody>
@@ -56,11 +53,6 @@ export default function TransactionTable() {
               <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
                 {transaction.amount} <span className='text-blue'>MGA</span>
               </th>
-              <td className='px-6 py-4 text-right'>
-                <Link href='/' className='font-bold hover:underline dark:text-blue'>
-                  <BsEye size={20} />
-                </Link>
-              </td>
             </tr>
           ))}
         </tbody>

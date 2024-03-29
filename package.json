@@ -19,6 +19,7 @@
     "react-icons": "4.11.0",
     "react-loader-spinner": "^6.1.6",
     "react-toastify": "^10.0.5",
+    "recharts": "^2.12.3",
     "sharp": "^0.33.3",
     "zod": "^3.22.4"
   },
