@@ -1,6 +1,5 @@
 'use client';
 
-import { TCard } from '@/lib/types';
 import { TPageCategory } from '@/lib/types';
 import { HiOutlineLogout } from 'react-icons/hi';
 import {
@@ -75,28 +74,6 @@ export const menu: TPageCategory[] = [
         icon: <HiOutlineLogout />,
       },
     ],
-  },
-];
-
-/* ===== Dashboard cards ===== */
-export const cards: TCard[] = [
-  {
-    id: 1,
-    title: 'Total transaction',
-    number: '69',
-    change: 2,
-  },
-  {
-    id: 2,
-    title: 'Current balance',
-    number: '69.225',
-    change: -2,
-  },
-  {
-    id: 3,
-    title: 'Total debt',
-    number: '6.642',
-    change: 18,
   },
 ];
 
