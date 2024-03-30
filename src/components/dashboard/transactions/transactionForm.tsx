@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { BiCheck } from 'react-icons/bi';
 
-export default function ExpenseTransactionForm() {
+export default function TransactionForm() {
   const router: AppRouterInstance = useRouter();
   const [transactionCategories, setTransactionCategories] = useState<TTransactionCategory[]>([]);
   const {
@@ -21,7 +21,11 @@ export default function ExpenseTransactionForm() {
   const onSubmit = async (data: FieldValues) => {
     try {
       data.idAccount = localStorage.getItem('idAccount');
-      data.transactionType = 'EXPENSE';
+
+      if (data.transactionDatetime) {
+        let date: Date = new Date(data.transactionDatetime);
+        data.transactionDatetime = date.toISOString();
+      }
 
       const response: Response = await fetch('http://localhost:8080/transaction', {
         method: 'PUT',
@@ -30,7 +34,6 @@ export default function ExpenseTransactionForm() {
           'Content-type': 'application/json',
         },
       });
-      console.log(response.body);
       if (!response.ok) {
         console.error(`HTTP error! status: ${response.status}`);
       } else {
@@ -42,6 +45,7 @@ export default function ExpenseTransactionForm() {
     } catch (error) {
       console.error('Error:', error);
     }
+    console.log(data);
   };
 
   useEffect(() => {
@@ -50,6 +54,18 @@ export default function ExpenseTransactionForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{ flex: 2 }} className='space-y-4'>
+      <label htmlFor='transactionType' className='block text-sm font-medium text-white'>
+        Choose your transaction type <span className='text-xs text-gray-500 '>(Expense or Income)</span>{' '}
+      </label>
+      <select
+        {...register('transactionType')}
+        id='transactionType'
+        className='mt-1 w-full rounded-md bg-hover p-2 outline-none'
+      >
+        <option value='EXPENSE'>Expense</option>
+        <option value='INCOME'>Income</option>
+      </select>
+
       <label htmlFor='amount' className='block text-sm font-medium text-white'>
         Amount
       </label>
@@ -65,7 +81,7 @@ export default function ExpenseTransactionForm() {
       </label>
       <input
         {...register('transactionDatetime')}
-        type='date'
+        type='datetime-local'
         className='mt-1 w-full rounded-md bg-hover p-2 outline-none '
       />
 
@@ -78,12 +94,12 @@ export default function ExpenseTransactionForm() {
         className='mt-1 w-full resize-none rounded-md bg-hover p-2 outline-none '
       />
 
-      <label htmlFor='category' className='block text-sm font-medium text-white'>
+      <label htmlFor='idTransactionCategory' className='block text-sm font-medium text-white'>
         Category
       </label>
       <select
-        {...register('category')}
-        id='category'
+        {...register('idTransactionCategory')}
+        id='idTransactionCategory'
         className='mt-1 w-full rounded-md bg-hover p-2 capitalize outline-none'
       >
         {transactionCategories.map((transactionCategory: TTransactionCategory) => (

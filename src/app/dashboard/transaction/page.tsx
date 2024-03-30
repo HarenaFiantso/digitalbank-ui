@@ -17,7 +17,6 @@ export default function TransactionList() {
     fetchTransactionsByIdAccount(idAccount).then(setTransactions);
   }, [idAccount]);
 
-  console.log(idAccount);
   const handleDelete = async (idTransaction: string) => {
     try {
       await deleteTransaction(idTransaction);
@@ -29,17 +28,17 @@ export default function TransactionList() {
   };
 
   return (
-    <div className='relative overflow-x-auto sm:rounded-lg'>
+    <div className='relative overflow-x-auto'>
       <h2 className='my-5 text-xl font-semibold text-blue'>All transactions</h2>
       <p className='mb-10 text-sm text-light'>
         Would you like make a transaction?{' '}
-        <Link href={'/dashboard/transaction/expenseTransaction'} className='hover:underline'>
+        <Link href={'/dashboard/transaction/makeTransaction'} className='hover:underline'>
           Click here
         </Link>
       </p>
       {transactions.length > 0 ? (
         transactions.map((transaction: TTransaction) => (
-          <table key={transaction.idTransaction} className='w-full text-left text-sm text-gray-500 rtl:text-right'>
+          <table key={transaction.idTransaction} className='w-full text-left text-sm text-gray-500 rtl:text-left'>
             <tbody>
               <tr
                 key={transaction.idTransaction}
@@ -86,7 +85,7 @@ export default function TransactionList() {
           <Image src={NoTransaction} width={500} height={500} alt='no transaction' />
           <h1 className='font-bold text-gray-500'>No Transaction found</h1>
           <Link
-            href={'/dashboard/transaction/expenseTransaction'}
+            href={'/dashboard/transaction/makeTransaction'}
             className='mt-5 rounded-lg bg-blue px-5 py-2 text-sm font-bold transition-all hover:bg-hover'
           >
             New Transaction
