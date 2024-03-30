@@ -1,14 +1,14 @@
 import { MakeTransaction } from '../../../../../public/assets';
-import TransactionForm from '@/components/dashboard/transactions/transactionForm';
+import ExpenseTransactionForm from '@/components/dashboard/transactions/expenseTransactionForm';
 import Image from 'next/image';
 
-export default function NewTransaction() {
+export default function ExpenseTransaction() {
   return (
     <div className='relative w-full overflow-x-auto sm:rounded-lg'>
-      <h2 className='my-5 text-xl font-semibold text-blue'>New Transaction</h2>
-      <p className='mb-10 text-sm text-light'>Please complete the following forms to make a transaction</p>
+      <h2 className='my-5 text-xl font-semibold text-blue'>Expense Transaction</h2>
+      <p className='mb-10 text-sm text-light'>Please complete the following forms to make an EXPENSE transaction</p>
       <div className='flex h-full w-full items-center justify-between text-white'>
-        <TransactionForm />
+        <ExpenseTransactionForm />
         <div className='flex h-full w-2/4 items-center justify-center text-center'>
           <Image src={MakeTransaction} width={1000} height={1000} alt='New transaction' />
         </div>

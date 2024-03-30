@@ -3,7 +3,7 @@
 import { Money } from '../../../public/assets';
 import Card from '@/components/dashboard/card/card';
 import Chart from '@/components/dashboard/chart/chart';
-import TransactionTable from '@/components/dashboard/transactions/TransactionTable';
+import TransactionTable from '@/components/dashboard/transactions/transactionTable';
 import { fetchAccount } from '@/lib/api/Accounts';
 import { TAccount } from '@/lib/types';
 import Image from 'next/image';

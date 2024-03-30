@@ -33,7 +33,7 @@ export default function TransactionList() {
       <h2 className='my-5 text-xl font-semibold text-blue'>All transactions</h2>
       <p className='mb-10 text-sm text-light'>
         Would you like make a transaction?{' '}
-        <Link href={'/dashboard/transaction/makeTransaction'} className='hover:underline'>
+        <Link href={'/dashboard/transaction/expenseTransaction'} className='hover:underline'>
           Click here
         </Link>
       </p>
@@ -86,7 +86,7 @@ export default function TransactionList() {
           <Image src={NoTransaction} width={500} height={500} alt='no transaction' />
           <h1 className='font-bold text-gray-500'>No Transaction found</h1>
           <Link
-            href={'/dashboard/transaction/makeTransaction'}
+            href={'/dashboard/transaction/expenseTransaction'}
             className='mt-5 rounded-lg bg-blue px-5 py-2 text-sm font-bold transition-all hover:bg-hover'
           >
             New Transaction

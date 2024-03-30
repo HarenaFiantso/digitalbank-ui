@@ -11,6 +11,12 @@ export type TAccount = {
   overDrafted: boolean;
 };
 
+export type TTransactionCategory = {
+  idTransactionCategory: string;
+  name: string;
+  description: string;
+};
+
 export type TPageItem = {
   title: string;
   path: string;

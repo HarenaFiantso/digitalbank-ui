@@ -77,7 +77,7 @@ export default function TransactionTable() {
           <Image src={NoTransaction} width={300} height={300} alt='no transaction' />
           <h1 className='font-bold text-gray-500'>No Transaction found</h1>
           <Link
-            href={'/dashboard/transaction/makeTransaction'}
+            href={'/dashboard/transaction/expenseTransaction'}
             className='mt-5 rounded-lg bg-blue px-5 py-2 text-sm font-bold transition-all hover:bg-hover'
           >
             New Transaction

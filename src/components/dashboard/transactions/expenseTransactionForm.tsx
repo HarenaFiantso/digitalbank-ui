@@ -1,12 +1,16 @@
 'use client';
 
+import { fetchCategories } from '@/lib/api/Category';
+import { TTransactionCategory } from '@/lib/types';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { BiCheck } from 'react-icons/bi';
 
-export default function TransactionForm() {
+export default function ExpenseTransactionForm() {
   const router: AppRouterInstance = useRouter();
+  const [transactionCategories, setTransactionCategories] = useState<TTransactionCategory[]>([]);
   const {
     register,
     handleSubmit,
@@ -16,6 +20,9 @@ export default function TransactionForm() {
 
   const onSubmit = async (data: FieldValues) => {
     try {
+      data.idAccount = localStorage.getItem('idAccount');
+      data.transactionType = 'EXPENSE';
+
       const response: Response = await fetch('http://localhost:8080/transaction', {
         method: 'PUT',
         body: JSON.stringify([data]),
@@ -37,20 +44,12 @@ export default function TransactionForm() {
     }
   };
 
+  useEffect(() => {
+    fetchCategories().then(setTransactionCategories);
+  }, []);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{ flex: 2 }} className='space-y-4'>
-      <label htmlFor='transactionType' className='block text-sm font-medium text-white'>
-        Transaction type <span className='text-xs text-gray-500 '>(Expense or Income)</span>{' '}
-      </label>
-      <select
-        {...register('transactionType')}
-        id='transactionType'
-        className='mt-1 w-full rounded-md bg-hover p-2 uppercase outline-none'
-      >
-        <option value='EXPENSE'>Expense</option>
-        <option value='INCOME'>Income</option>
-      </select>
-
       <label htmlFor='amount' className='block text-sm font-medium text-white'>
         Amount
       </label>
@@ -82,11 +81,17 @@ export default function TransactionForm() {
       <label htmlFor='category' className='block text-sm font-medium text-white'>
         Category
       </label>
-      <select {...register('category')} id='category' className='mt-1 w-full rounded-md bg-hover p-2 outline-none'>
-        <option value='travel'>Travel</option>
-        <option value='others'>Others</option>
+      <select
+        {...register('category')}
+        id='category'
+        className='mt-1 w-full rounded-md bg-hover p-2 capitalize outline-none'
+      >
+        {transactionCategories.map((transactionCategory: TTransactionCategory) => (
+          <option key={transactionCategory.idTransactionCategory} value={transactionCategory.idTransactionCategory}>
+            {transactionCategory.name}
+          </option>
+        ))}
       </select>
-
       <button
         disabled={isSubmitting}
         type='submit'
