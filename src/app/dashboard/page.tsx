@@ -43,7 +43,7 @@ export default function Dashboard() {
         </div>
       </div>
       <TransactionTable />
-      <Chart />
+      {/* <Chart /> */}
     </div>
   );
 }

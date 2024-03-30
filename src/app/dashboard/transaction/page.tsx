@@ -1,13 +1,13 @@
 'use client';
 
 import { NoAvatar, NoTransaction } from '../../../../public/assets';
+import { fetchTransactionsByIdAccount } from '@/lib/api/Accounts';
 import { deleteTransaction } from '@/lib/api/Transactions';
 import { TTransaction } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
-import { fetchTransactionsByIdAccount } from '@/lib/api/Accounts';
 
 export default function TransactionList() {
   const [transactions, setTransactions] = useState<TTransaction[]>([]);
