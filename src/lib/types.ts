@@ -12,6 +12,13 @@ export type TAccount = {
   balance: TBalance;
 };
 
+export type TDebt = {
+  idDebt: string;
+  amount: number;
+  debtDatetime: Date;
+  account: TAccount
+}
+
 export type TBalance = {
   idBalance: string;
   idAccount: string;

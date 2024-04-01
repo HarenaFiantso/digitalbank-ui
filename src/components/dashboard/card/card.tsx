@@ -1,5 +1,6 @@
 import { fetchAccount } from '@/lib/api/Accounts';
-import { TAccount } from '@/lib/types';
+import { fetchDebt } from '@/lib/api/Debt';
+import { TAccount, TDebt } from '@/lib/types';
 import { format, parseISO } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { FcDebt } from 'react-icons/fc';
@@ -8,10 +9,14 @@ import { MdBalance, MdSupervisedUserCircle } from 'react-icons/md';
 export default function Card() {
   const idAccount: string | null = localStorage.getItem('idAccount');
   const [account, setAccount] = useState<TAccount>();
+  const [debt, setDebt] = useState<TDebt>()
 
   useEffect(() => {
     fetchAccount(idAccount).then(setAccount);
+    fetchDebt().then(setDebt)
   }, [idAccount]);
+
+  console.log(debt)
 
   const isoDate: string | undefined = account?.balance.balanceDatetime;
 
@@ -58,7 +63,7 @@ export default function Card() {
           <span className='mb-2 font-semibold text-blue'>Total debt</span>
           <span className='text-2xl'>
             {' '}
-            -55.000 <span className='text-sm uppercase text-blue'>MGA</span>
+            {debt?.amount} <span className='text-sm uppercase text-blue'>MGA</span>
           </span>
           <span className='text-sm text-color'>
             <span className='text-lime-500'>2%</span> More than previous week
