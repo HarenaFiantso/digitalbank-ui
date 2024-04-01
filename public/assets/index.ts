@@ -4,5 +4,6 @@ import MakeTransaction from './makeTransaction.webp';
 import Money from './money.webp';
 import NoTransaction from './noTransaction.png';
 import NoAvatar from './noavatar.png';
+import Transfer from './transfer.png';
 
-export { Money, NoAvatar, AddAccount, AccountNotFount, NoTransaction, MakeTransaction };
+export { Money, NoAvatar, AddAccount, AccountNotFount, NoTransaction, MakeTransaction, Transfer };

@@ -15,7 +15,7 @@ export default function Card() {
 
   const isoDate: string | undefined = account?.balance.balanceDatetime;
 
-  let formattedDate: string = '';
+  let formattedDate: string;
 
   if (isoDate) {
     formattedDate = format(parseISO(isoDate), 'yyyy-MM-dd');
@@ -23,7 +23,6 @@ export default function Card() {
     formattedDate = 'Date not found';
   }
 
-  console.log(account);
   return (
     <>
       <div className='flex h-max w-max cursor-pointer gap-5 rounded-xl bg-main-soft p-5 transition-all hover:bg-hover'>
