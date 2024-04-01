@@ -1,15 +1,19 @@
 'use client';
 
 import { fetchCategories } from '@/lib/api/Category';
-import { TTransactionCategory } from '@/lib/types';
+import { TAccount, TTransactionCategory } from '@/lib/types';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { BiCheck } from 'react-icons/bi';
+import { fetchAccount } from '@/lib/api/Accounts';
+import { toast } from 'react-toastify';
 
 export default function TransactionForm() {
   const router: AppRouterInstance = useRouter();
+  const idAccount: string | null = localStorage.getItem("idAccount")
+  const [account, setAccount] = useState<TAccount>()
   const [transactionCategories, setTransactionCategories] = useState<TTransactionCategory[]>([]);
   const {
     register,
@@ -20,37 +24,45 @@ export default function TransactionForm() {
 
   const onSubmit = async (data: FieldValues) => {
     try {
+      const balance: number | undefined = account?.balance.amount;
       data.idAccount = localStorage.getItem('idAccount');
 
-      if (data.transactionDatetime) {
-        let date: Date = new Date(data.transactionDatetime);
-        data.transactionDatetime = date.toISOString();
-      }
+      if (typeof balance === "number") {
+        if (data.transactionType === 'EXPENSE' && balance < data.amount) {
+          toast.error("Your balance is insufficient")
+        } else {
+          if (data.transactionDatetime) {
+            let date: Date = new Date(data.transactionDatetime);
+            data.transactionDatetime = date.toISOString();
+          }
 
-      const response: Response = await fetch('http://localhost:8080/transaction', {
-        method: 'PUT',
-        body: JSON.stringify([data]),
-        headers: {
-          'Content-type': 'application/json',
-        },
-      });
-      if (!response.ok) {
-        console.error(`HTTP error! status: ${response.status}`);
-      } else {
-        router.push('/dashboard/transaction');
+          const response: Response = await fetch('http://localhost:8080/transaction', {
+            method: 'PUT',
+            body: JSON.stringify([data]),
+            headers: {
+              'Content-type': 'application/json',
+            },
+          });
+          if (!response.ok) {
+            console.error(`HTTP error! status: ${response.status}`);
+          } else {
+            router.push('/dashboard/transaction');
+          }
+          const result = await response.json();
+          console.log('Success:', result);
+
+          reset();
+        }
       }
-      const result = await response.json();
-      console.log('Success:', result);
-      reset();
     } catch (error) {
       console.error('Error:', error);
     }
-    console.log(data);
   };
 
   useEffect(() => {
     fetchCategories().then(setTransactionCategories);
-  }, []);
+    fetchAccount(idAccount).then(setAccount)
+  }, [idAccount]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{ flex: 2 }} className='space-y-4'>
