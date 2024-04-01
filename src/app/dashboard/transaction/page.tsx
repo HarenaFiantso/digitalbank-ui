@@ -38,7 +38,7 @@ export default function TransactionList() {
       </p>
       {transactions.length > 0 ? (
         transactions.map((transaction: TTransaction) => (
-          <table key={transaction.idTransaction} className='w-full text-left text-sm text-gray-500 rtl:text-left'>
+          <table key={transaction.idTransaction} className='w-full text-sm text-gray-500'>
             <tbody>
               <tr
                 key={transaction.idTransaction}
@@ -47,7 +47,7 @@ export default function TransactionList() {
                 <th scope='row' className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
                   <div className='flex items-center gap-5 '>
                     <Image src={NoAvatar} alt='avatar' width={40} height={40} className='rounded-full object-cover' />
-                    <h2>{transaction.account.firstName}</h2>
+                    <h2>You</h2>
                   </div>
                 </th>
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>

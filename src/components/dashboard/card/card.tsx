@@ -3,6 +3,7 @@ import { TAccount } from '@/lib/types';
 import { useEffect, useState } from 'react';
 import { FcDebt } from 'react-icons/fc';
 import { MdBalance, MdSupervisedUserCircle } from 'react-icons/md';
+import { format, parseISO } from 'date-fns';
 
 export default function Card() {
   const idAccount: string | null = localStorage.getItem('idAccount');
@@ -10,7 +11,17 @@ export default function Card() {
 
   useEffect(() => {
     fetchAccount(idAccount).then(setAccount);
-  }, []);
+  }, [idAccount]);
+
+  const isoDate: string | undefined = account?.balance.balanceDatetime;
+
+  let formattedDate: string = '';
+
+  if (isoDate) {
+    formattedDate = format(parseISO(isoDate), 'yyyy-MM-dd');
+  } else {
+    formattedDate = 'Date not found';
+  }
 
   return (
     <>
@@ -22,7 +33,7 @@ export default function Card() {
             {account?.monthlySalary} <span className='text-sm uppercase text-blue'>MGA</span>
           </span>
           <span className='text-sm text-color'>
-            <span className='text-lime-500'>12%</span> More than last month
+            <span className='text-lime-500'>Latest update: </span> {formattedDate}
           </span>
         </div>
       </div>
@@ -32,10 +43,10 @@ export default function Card() {
         <div className='flex flex-col gap-2'>
           <span className='mb-2 font-semibold text-blue'>Current balance</span>
           <span className='text-2xl'>
-            760.000<span className='text-sm uppercase text-blue'>MGA</span>
+            {account?.balance.amount}<span className='text-sm uppercase text-blue'> MGA</span>
           </span>
           <span className='text-sm text-color'>
-            <span className='text-lime-500'>6%</span> More than previous week
+            <span className='text-lime-500'>Latest update: </span> {formattedDate}
           </span>
         </div>
       </div>

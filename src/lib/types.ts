@@ -1,5 +1,5 @@
 import { accountSchema } from '@/lib/validations/accountSchema';
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { z } from 'zod';
 
 export type TAccount = {
@@ -9,7 +9,15 @@ export type TAccount = {
   birthDate: Date;
   monthlySalary: number;
   overDrafted: boolean;
+  balance: TBalance
 };
+
+export type TBalance = {
+  idBalance: string;
+  idAccount: string;
+  balanceDatetime: string;
+  amount: number;
+}
 
 export type TTransactionCategory = {
   idTransactionCategory: string;

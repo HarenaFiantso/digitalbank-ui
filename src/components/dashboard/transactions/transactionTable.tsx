@@ -39,7 +39,7 @@ export default function TransactionTable() {
                 <th scope='row' className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
                   <div className='flex items-center gap-5 '>
                     <Image src={NoAvatar} alt='avatar' width={40} height={40} className='rounded-full object-cover' />
-                    <h2>{transaction?.account.firstName}</h2>
+                    <h2>You</h2>
                   </div>
                 </th>
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
