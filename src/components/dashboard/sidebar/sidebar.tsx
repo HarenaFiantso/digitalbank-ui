@@ -16,7 +16,7 @@ export default function Sidebar({ account }: { account: TAccount | undefined }) 
         <Image className='rounded-full' src={NoAvatar} alt='Avatar' width='50' height='50' />
         <div className='flex flex-col gap-2'>
           <span className='text-lg font-semibold capitalize'>
-            {account?.firstName} {account?.lastName} 🍔
+            {account?.firstName} {account?.lastName} 🇲🇬
           </span>
           <span className='flex-wrap text-sm font-medium lowercase text-[#b7bac1]'>
             @{account?.lastName}
