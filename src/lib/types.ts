@@ -9,7 +9,7 @@ export type TAccount = {
   birthDate: Date;
   monthlySalary: number;
   overDrafted: boolean;
-  balance: TBalance
+  balance: TBalance;
 };
 
 export type TBalance = {
@@ -17,7 +17,7 @@ export type TBalance = {
   idAccount: string;
   balanceDatetime: string;
   amount: number;
-}
+};
 
 export type TTransactionCategory = {
   idTransactionCategory: string;

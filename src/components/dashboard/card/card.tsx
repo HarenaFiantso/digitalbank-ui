@@ -1,9 +1,9 @@
 import { fetchAccount } from '@/lib/api/Accounts';
 import { TAccount } from '@/lib/types';
+import { format, parseISO } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { FcDebt } from 'react-icons/fc';
 import { MdBalance, MdSupervisedUserCircle } from 'react-icons/md';
-import { format, parseISO } from 'date-fns';
 
 export default function Card() {
   const idAccount: string | null = localStorage.getItem('idAccount');
@@ -43,7 +43,8 @@ export default function Card() {
         <div className='flex flex-col gap-2'>
           <span className='mb-2 font-semibold text-blue'>Current balance</span>
           <span className='text-2xl'>
-            {account?.balance.amount}<span className='text-sm uppercase text-blue'> MGA</span>
+            {account?.balance.amount}
+            <span className='text-sm uppercase text-blue'> MGA</span>
           </span>
           <span className='text-sm text-color'>
             <span className='text-lime-500'>Latest update: </span> {formattedDate}
