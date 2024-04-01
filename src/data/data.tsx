@@ -4,7 +4,6 @@ import { TPageCategory } from '@/lib/types';
 import { HiOutlineLogout } from 'react-icons/hi';
 import {
   MdAnalytics,
-  MdAttachMoney,
   MdDashboard,
   MdFormatListBulleted,
   MdOutlineSettings,
@@ -30,13 +29,8 @@ export const menu: TPageCategory[] = [
       },
       {
         title: 'Transfer',
-        path: `/dashboard/transfer-list`,
+        path: `/dashboard/transfer`,
         icon: <MdOutlineTransferWithinAStation />,
-      },
-      {
-        title: 'Page 3',
-        path: `/dashboard/page-3`,
-        icon: <MdAttachMoney />,
       },
     ],
   },
