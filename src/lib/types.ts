@@ -11,6 +11,7 @@ export type TAccount = {
   overDrafted: boolean;
   balance: TBalance;
   transactions: TTransaction[];
+  debt: TDebt | null;
 };
 
 export type TDebt = {

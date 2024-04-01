@@ -9,11 +9,9 @@ import { MdBalance, MdSupervisedUserCircle } from 'react-icons/md';
 export default function Card() {
   const idAccount: string | null = localStorage.getItem('idAccount');
   const [account, setAccount] = useState<TAccount>();
-  const [debt, setDebt] = useState<TDebt>();
 
   useEffect(() => {
     fetchAccount(idAccount).then(setAccount);
-    fetchDebt().then(setDebt);
   }, [idAccount]);
 
   const isoDate: string | undefined = account?.balance.balanceDatetime;
@@ -26,6 +24,7 @@ export default function Card() {
     formattedDate = 'Date not found';
   }
 
+  console.log(account);
   return (
     <>
       <div className='flex h-max w-max cursor-pointer gap-5 rounded-xl bg-main-soft p-5 transition-all hover:bg-hover'>
@@ -59,10 +58,14 @@ export default function Card() {
         <FcDebt size={24} className='text-blue' />
         <div className='flex flex-col gap-2'>
           <span className='mb-2 font-semibold text-blue'>Total debt</span>
-          <span className='text-2xl'>
-            {' '}
-            {debt?.amount} <span className='text-sm uppercase text-blue'>MGA</span>
-          </span>
+          {account?.debt === null ? (
+            <span className='text-2xl'>No debt</span>
+          ) : (
+            <span className='text-2xl'>
+              {account?.debt?.amount} <span className='text-sm uppercase text-blue'>MGA</span>
+            </span>
+          )}
+
           <span className='text-sm text-color'>
             <span className='text-lime-500'>2%</span> More than previous week
           </span>
