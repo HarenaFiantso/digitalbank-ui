@@ -1,21 +1,23 @@
 'use client';
 
 import { NoAvatar, NoTransaction } from '../../../../public/assets';
-import { fetchAccount } from '@/lib/api/Accounts';
+import { fetchTransactionsByIdAccount } from '@/lib/api/Accounts';
 import { deleteTransaction } from '@/lib/api/Transactions';
-import { TTransaction } from '@/lib/types';
+import { TAccount, TTransaction } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
 
-export default function TransactionTable() {
+export default function TransactionTable({ account }: { account: TAccount | undefined }) {
   const [transactions, setTransactions] = useState<TTransaction[]>([]);
   const idAccount: string | null = localStorage.getItem('idAccount');
 
   useEffect(() => {
-    fetchAccount(idAccount).then(setTransactions);
+    fetchTransactionsByIdAccount(idAccount).then(setTransactions);
   }, [idAccount]);
+
+  console.log(account);
 
   const handleDelete = async (idTransaction: string) => {
     try {
@@ -27,11 +29,13 @@ export default function TransactionTable() {
     }
   };
 
+  console.log(transactions);
+
   return (
     <div className='relative overflow-x-auto'>
       <h2 className='my-5 text-xl font-semibold text-blue'>Latest transactions 🚀</h2>
-      {transactions.length > 0 ? (
-        transactions.map((transaction: TTransaction) => (
+      {Array.isArray(account?.transactions) && account?.transactions.length > 0 ? (
+        account?.transactions.map((transaction) => (
           <table key={transaction?.idTransaction} className='w-full text-left text-sm text-gray-500 rtl:text-right'>
             <tbody>
               <tr className='border-b capitalize transition-all hover:bg-hover dark:border-gray-700 dark:bg-gray-800'>
@@ -51,7 +55,7 @@ export default function TransactionTable() {
                   {transaction?.transactionDatetime.toString()}
                 </th>
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
-                  {transaction?.category.name}
+                  {transaction?.category?.name}
                 </th>
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
                   {transaction?.amount} <span className='text-blue'>MGA</span>

@@ -9,14 +9,12 @@ import { MdBalance, MdSupervisedUserCircle } from 'react-icons/md';
 export default function Card() {
   const idAccount: string | null = localStorage.getItem('idAccount');
   const [account, setAccount] = useState<TAccount>();
-  const [debt, setDebt] = useState<TDebt>()
+  const [debt, setDebt] = useState<TDebt>();
 
   useEffect(() => {
     fetchAccount(idAccount).then(setAccount);
-    fetchDebt().then(setDebt)
+    fetchDebt().then(setDebt);
   }, [idAccount]);
-
-  console.log(debt)
 
   const isoDate: string | undefined = account?.balance.balanceDatetime;
 
