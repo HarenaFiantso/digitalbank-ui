@@ -15,3 +15,7 @@ This web platform primarily focuses on two major functionalities utilizing our p
 - Cash withdrawal and overdraft account management
 
 Dream Digital Bank aims to provide a seamless and convenient banking experience, empowering users to handle their finances efficiently with just a few clicks. Whether it's checking balances, transferring funds, or managing overdrafts, our platform offers intuitive solutions tailored to modern banking needs.
+
+![Choose account](./public/docs/1.png)
+![Dashboard](./public/docs/2.png)
+![Transaction](./public/docs/3.png)
