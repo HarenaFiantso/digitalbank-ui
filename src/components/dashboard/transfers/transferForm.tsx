@@ -1,5 +1,10 @@
 'use client';
 
+import { NoAvatar } from '../../../../public/assets';
+import { fetchAccounts } from '@/lib/api/Accounts';
+import { TAccount } from '@/lib/types';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { BiTransfer } from 'react-icons/bi';
 
@@ -9,12 +14,18 @@ export default function TransferForm() {
     handleSubmit,
     formState: { isSubmitting },
   } = useForm();
+  const [accounts, setAccounts] = useState<TAccount[]>([]);
 
   const onSubmit = async (data: FieldValues) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     console.log(data);
   };
+
+  useEffect(() => {
+    fetchAccounts().then(setAccounts);
+  }, []);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{ flex: 2 }} className='space-y-4'>
       <label htmlFor='amount' className='block text-sm font-medium text-white'>
@@ -53,7 +64,13 @@ export default function TransferForm() {
         id='idAccount'
         className='mt-1 w-full rounded-md bg-hover p-2 capitalize outline-none'
       >
-        <option value='string'>String</option>
+        {accounts
+          .filter((account: TAccount) => account.idAccount !== localStorage.getItem('idAccount'))
+          .map((account: TAccount) => (
+            <option key={account.idAccount} value={account.idAccount}>
+              {account.firstName} {account.lastName}
+            </option>
+          ))}
       </select>
 
       <button
