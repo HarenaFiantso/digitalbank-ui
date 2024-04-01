@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
+import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
 
 export default function TransactionTable({ account }: { account: TAccount | undefined }) {
   const [transactions, setTransactions] = useState<TTransaction[]>([]);
@@ -44,7 +45,10 @@ export default function TransactionTable({ account }: { account: TAccount | unde
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
                   {transaction?.reason}
                 </th>
-                <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
+                <th
+                  className={`flex items-center gap-2 whitespace-nowrap px-6 py-6 font-medium ${transaction?.transactionType === 'EXPENSE' ? 'text-red-500' : 'text-lime-500'}`}
+                >
+                  {transaction?.transactionType === 'EXPENSE' ? <MdArrowUpward /> : <MdArrowDownward />}
                   {transaction?.transactionType}
                 </th>
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
@@ -53,8 +57,10 @@ export default function TransactionTable({ account }: { account: TAccount | unde
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
                   {transaction?.category?.name}
                 </th>
-                <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
-                  {transaction?.amount} <span className='text-blue'>MGA</span>
+                <th
+                  className={`whitespace-nowrap px-6 py-4 font-medium ${transaction.amount < 0 ? 'text-red-500' : 'text-white'}`}
+                >
+                  {transaction.amount} <span className='text-blue'>MGA</span>
                 </th>
                 <td className='px-6 py-4 text-right'>
                   <button

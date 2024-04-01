@@ -59,7 +59,7 @@ export type TTransaction = {
   type: string;
   transactionDatetime: Date;
   transactionType: string;
-  amount: string;
+  amount: number;
   transfer: null;
 };
 

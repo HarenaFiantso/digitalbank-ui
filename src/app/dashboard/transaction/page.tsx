@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
+import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
 export default function TransactionList() {
@@ -37,7 +38,7 @@ export default function TransactionList() {
           Click here
         </Link>
       </p>
-      <table className='w-full justify-center items-center text-left text-sm text-gray-500 rtl:text-right'>
+      <table className='w-full items-center justify-center text-left text-sm text-gray-500 rtl:text-right'>
         {transactions.length > 0 ? (
           transactions.map((transaction: TTransaction) => (
             <tbody key={transaction.idTransaction}>
@@ -54,8 +55,11 @@ export default function TransactionList() {
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
                   {transaction.reason}
                 </th>
-                <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
-                  {transaction.transactionType}
+                <th
+                  className={`flex items-center gap-2 whitespace-nowrap px-6 py-6 font-medium ${transaction?.transactionType === 'EXPENSE' ? 'text-red-500' : 'text-lime-500'}`}
+                >
+                  {transaction?.transactionType === 'EXPENSE' ? <MdArrowUpward /> : <MdArrowDownward />}
+                  {transaction?.transactionType}
                 </th>
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
                   {transaction.transactionDatetime.toString()}
@@ -63,7 +67,9 @@ export default function TransactionList() {
                 <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
                   {transaction.category.name}
                 </th>
-                <th className='whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white'>
+                <th
+                  className={`whitespace-nowrap px-6 py-4 font-medium ${transaction.amount < 0 ? 'text-red-500' : 'text-white'}`}
+                >
                   {transaction.amount} <span className='text-blue'>MGA</span>
                 </th>
                 <td className='px-6 py-4 text-right'>
