@@ -1,6 +1,5 @@
 import { fetchAccount } from '@/lib/api/Accounts';
-import { fetchDebt } from '@/lib/api/Debt';
-import { TAccount, TDebt } from '@/lib/types';
+import { TAccount } from '@/lib/types';
 import { format, parseISO } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { FcDebt } from 'react-icons/fc';
@@ -59,16 +58,20 @@ export default function Card() {
         <div className='flex flex-col gap-2'>
           <span className='mb-2 font-semibold text-blue'>Total debt</span>
           {account?.debt === null ? (
-            <span className='text-2xl'>No debt</span>
+            <>
+              <span className='text-2xl'>No debt</span>
+              <span className='text-sm text-color'>No interest rate</span>
+            </>
           ) : (
-            <span className='text-2xl'>
-              {account?.debt?.amount} <span className='text-sm uppercase text-blue'>MGA</span>
-            </span>
+            <>
+              <span className='text-2xl'>
+                {account?.debt?.amount} <span className='text-sm uppercase text-blue'>MGA</span>
+              </span>
+              <span className='text-sm text-color'>
+                <span className='text-lime-500'>Interest rate:</span> {account?.debt?.interestRate?.value}
+              </span>
+            </>
           )}
-
-          <span className='text-sm text-color'>
-            <span className='text-lime-500'>2%</span> More than previous week
-          </span>
         </div>
       </div>
     </>

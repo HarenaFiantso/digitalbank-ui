@@ -19,6 +19,12 @@ export type TDebt = {
   amount: number;
   debtDatetime: Date;
   account: TAccount;
+  interestRate: TInterestRate;
+};
+
+export type TInterestRate = {
+  idInterestRate: string;
+  value: number;
 };
 
 export type TBalance = {
