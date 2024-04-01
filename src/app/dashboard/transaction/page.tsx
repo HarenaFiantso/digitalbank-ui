@@ -6,8 +6,9 @@ import { deleteTransaction } from '@/lib/api/Transactions';
 import { TTransaction } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
+import { toast } from 'react-toastify';
 
 export default function TransactionList() {
   const [transactions, setTransactions] = useState<TTransaction[]>([]);
@@ -21,7 +22,7 @@ export default function TransactionList() {
     try {
       await deleteTransaction(idTransaction);
       setTransactions(transactions.filter((transaction: TTransaction) => transaction.idTransaction !== idTransaction));
-      console.log('Transaction deleted successfully');
+      toast.success('Transaction deleted successfully');
     } catch (error) {
       console.error('Failed to delete transaction', error);
     }
