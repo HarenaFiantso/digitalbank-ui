@@ -37,10 +37,10 @@ export default function TransactionList() {
           Click here
         </Link>
       </p>
-      {transactions.length > 0 ? (
-        transactions.map((transaction: TTransaction) => (
-          <table key={transaction.idTransaction} className='w-full text-sm text-gray-500'>
-            <tbody>
+      <table className='w-full justify-center items-center text-left text-sm text-gray-500 rtl:text-right'>
+        {transactions.length > 0 ? (
+          transactions.map((transaction: TTransaction) => (
+            <tbody key={transaction.idTransaction}>
               <tr
                 key={transaction.idTransaction}
                 className='border-b capitalize transition-all hover:bg-hover dark:border-gray-700 dark:bg-gray-800'
@@ -79,20 +79,20 @@ export default function TransactionList() {
                 </td>
               </tr>
             </tbody>
-          </table>
-        ))
-      ) : (
-        <div className='flex flex-col items-center justify-between'>
-          <Image src={NoTransaction} width={500} height={500} alt='no transaction' />
-          <h1 className='font-bold text-gray-500'>No Transaction found</h1>
-          <Link
-            href={'/dashboard/transaction/makeTransaction'}
-            className='mt-5 rounded-lg bg-blue px-5 py-2 text-sm font-bold transition-all hover:bg-hover'
-          >
-            New Transaction
-          </Link>
-        </div>
-      )}
+          ))
+        ) : (
+          <div className='flex flex-col items-center justify-between'>
+            <Image src={NoTransaction} width={500} height={500} alt='no transaction' />
+            <h1 className='font-bold text-gray-500'>No Transaction found</h1>
+            <Link
+              href={'/dashboard/transaction/makeTransaction'}
+              className='mt-5 rounded-lg bg-blue px-5 py-2 text-sm font-bold text-white transition-all hover:bg-hover'
+            >
+              New Transaction
+            </Link>
+          </div>
+        )}
+      </table>
     </div>
   );
 }
