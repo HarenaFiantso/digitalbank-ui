@@ -1,7 +1,7 @@
 'use client';
 
 import { NoAvatar, NoTransaction } from '../../../../public/assets';
-import { fetchTransactionsByIdAccount } from '@/lib/api/Accounts';
+import { fetchAccount } from '@/lib/api/Accounts';
 import { deleteTransaction } from '@/lib/api/Transactions';
 import { TTransaction } from '@/lib/types';
 import Image from 'next/image';
@@ -14,10 +14,9 @@ export default function TransactionTable() {
   const idAccount: string | null = localStorage.getItem('idAccount');
 
   useEffect(() => {
-    fetchTransactionsByIdAccount(idAccount).then(setTransactions);
+    fetchAccount(idAccount).then(setTransactions);
   }, [idAccount]);
 
-  console.log(idAccount);
   const handleDelete = async (idTransaction: string) => {
     try {
       await deleteTransaction(idTransaction);
