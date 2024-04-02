@@ -32,6 +32,7 @@ const overDraftedField = z.string();
 export const accountSchema = z.object({
   firstName: stringField('First Name'),
   lastName: stringField('Last Name'),
+  idAccount: z.string().nullable(),
   birthDate: dateField,
   monthlySalary: salaryField,
   overDrafted: overDraftedField,
