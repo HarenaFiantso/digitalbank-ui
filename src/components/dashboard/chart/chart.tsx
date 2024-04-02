@@ -1,5 +1,5 @@
-import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { lineChartData } from '@/data/data';
+import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 export default function Chart() {
   return (

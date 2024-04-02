@@ -38,8 +38,8 @@ export const menu: TPageCategory[] = [
     title: 'Analytics',
     list: [
       {
-        title: 'Analytics 1',
-        path: '/dashboard/analytics-1',
+        title: 'Transaction by category',
+        path: '/dashboard/transactionByCategory',
         icon: <MdWork />,
       },
       {
