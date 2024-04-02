@@ -9,6 +9,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
 import { MdArrowDownward, MdArrowUpward } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
 export default function TransactionTable({ account }: { account: TAccount | undefined }) {
   const [transactions, setTransactions] = useState<TTransaction[]>([]);
@@ -22,6 +23,9 @@ export default function TransactionTable({ account }: { account: TAccount | unde
     try {
       await deleteTransaction(idTransaction);
       setTransactions(transactions.filter((transaction: TTransaction) => transaction.idTransaction !== idTransaction));
+      toast.success('Transaction deleted successfully', {
+        theme: "dark",
+      });
       console.log('Transaction deleted successfully');
     } catch (error) {
       console.error('Failed to delete transaction', error);
@@ -65,8 +69,7 @@ export default function TransactionTable({ account }: { account: TAccount | unde
                 <td className='px-6 py-4 text-right'>
                   <button
                     className='font-bold text-red-500'
-                    onClick={(e) => {
-                      e.stopPropagation();
+                    onClick={() => {
                       handleDelete(transaction.idTransaction).then((r: void) => console.log(r));
                     }}
                   >

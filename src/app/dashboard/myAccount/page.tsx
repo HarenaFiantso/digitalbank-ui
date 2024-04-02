@@ -1,3 +1,12 @@
+import React from 'react';
+
 export default function MyAccount() {
-  return <h1>My Account</h1>;
+  return (
+    <div className='relative overflow-x-auto'>
+      <h2 className='my-5 text-xl font-semibold text-blue'>Update your information</h2>
+      <p className='mb-10 text-sm text-light'>
+        You can easily update you account details by completing the following inputs
+      </p>
+    </div>
+  );
 }
