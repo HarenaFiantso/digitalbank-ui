@@ -23,11 +23,15 @@ export default function TransactionList() {
     try {
       await deleteTransaction(idTransaction);
       setTransactions(transactions.filter((transaction: TTransaction) => transaction.idTransaction !== idTransaction));
-      toast.success('Transaction deleted successfully');
+      toast.success('Transaction deleted successfully', {
+        theme: "dark",
+      });
+      console.log('Transaction deleted successfully');
     } catch (error) {
       console.error('Failed to delete transaction', error);
     }
   };
+
 
   return (
     <div className='relative overflow-x-auto'>
@@ -75,8 +79,7 @@ export default function TransactionList() {
                 <td className='px-6 py-4 text-right'>
                   <button
                     className='font-bold text-red-500'
-                    onClick={(e) => {
-                      e.stopPropagation();
+                    onClick={() => {
                       handleDelete(transaction.idTransaction).then((r: void) => console.log(r));
                     }}
                   >

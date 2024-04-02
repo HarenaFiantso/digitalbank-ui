@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { BiTrash } from 'react-icons/bi';
+import { toast } from 'react-toastify';
 
 export default function ChooseAccount() {
   const router: AppRouterInstance = useRouter();
@@ -21,7 +22,10 @@ export default function ChooseAccount() {
     try {
       await deleteAccount(idAccount);
       setAccounts(accounts.filter((account: TAccount) => account.idAccount !== idAccount));
-      console.log('Account deleted successfully');
+      toast.success("Account deleted successfully", {
+        theme: "dark",
+        progress: "#7d6fd9"
+      })
     } catch (error) {
       console.error('Failed to delete account', error);
     }

@@ -14,7 +14,9 @@ export default function MenuLink({ item }: { item: TPageItem }) {
   const router: AppRouterInstance = useRouter();
 
   const handleLogout = async () => {
-    toast('Account disconnected');
+    toast.success('Account disconnected', {
+      theme: 'dark'
+    });
     await new Promise((resolve) => setTimeout(resolve, 3000));
     localStorage.removeItem('idAccount');
     router.push('/chooseAccount');

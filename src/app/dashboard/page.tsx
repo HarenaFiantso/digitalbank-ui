@@ -18,8 +18,6 @@ export default function Dashboard() {
     fetchAccount(idAccount).then(setAccount);
   }, [idAccount]);
 
-  console.log(account);
-
   return (
     <div className='mt-5'>
       <div className='flex flex-wrap justify-between'>
