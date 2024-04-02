@@ -3,11 +3,19 @@
 import { NoAvatar } from '../../../../public/assets';
 import MenuLink from '@/components/dashboard/sidebar/menuLink';
 import { menu } from '@/data/data';
+import { fetchAccount } from '@/lib/api/Accounts';
 import { TAccount, TPageCategory, TPageItem } from '@/lib/types';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default function Sidebar({ account }: { account: TAccount | undefined }) {
+export default function Sidebar() {
+  const idAccount: string | null = localStorage.getItem('idAccount');
+  const [account, setAccount] = useState<TAccount>();
+
+  useEffect(() => {
+    fetchAccount(idAccount).then(setAccount);
+  }, [idAccount]);
+
   return (
     <div className=' h-screen p-8'>
       <div className='mb-5 flex items-center gap-5'>

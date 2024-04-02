@@ -2,22 +2,13 @@
 
 import Navbar from '@/components/dashboard/navbar/navbar';
 import Sidebar from '@/components/dashboard/sidebar/sidebar';
-import { fetchAccount } from '@/lib/api/Accounts';
-import { TAccount } from '@/lib/types';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
-  const idAccount: string | null = localStorage.getItem('idAccount');
-  const [account, setAccount] = useState<TAccount>();
-
-  useEffect(() => {
-    fetchAccount(idAccount).then(setAccount);
-  }, [idAccount]);
-
   return (
     <div className='flex'>
       <div style={{ flex: 1 }} className='sticky top-0 h-screen bg-main-soft'>
-        <Sidebar account={account} />
+        <Sidebar />
       </div>
       <div style={{ flex: 4 }} className='overflow-hidden p-5'>
         <Navbar />
