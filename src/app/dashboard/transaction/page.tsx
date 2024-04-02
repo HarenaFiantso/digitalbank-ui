@@ -24,14 +24,13 @@ export default function TransactionList() {
       await deleteTransaction(idTransaction);
       setTransactions(transactions.filter((transaction: TTransaction) => transaction.idTransaction !== idTransaction));
       toast.success('Transaction deleted successfully', {
-        theme: "dark",
+        theme: 'dark',
       });
       console.log('Transaction deleted successfully');
     } catch (error) {
       console.error('Failed to delete transaction', error);
     }
   };
-
 
   return (
     <div className='relative overflow-x-auto'>

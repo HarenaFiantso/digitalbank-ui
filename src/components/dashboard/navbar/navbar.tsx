@@ -13,19 +13,31 @@ export default function Navbar() {
       <div className='text-xl font-bold capitalize text-blue'>{pageTitle || 'Dashboard'}</div>
       <div className='flex items-center gap-5'>
         <div className='flex justify-between gap-5'>
-          <button onClick={() => toast.info('Available soon !', {
-            theme: 'dark',
-          })}>
+          <button
+            onClick={() =>
+              toast.info('Available soon !', {
+                theme: 'dark',
+              })
+            }
+          >
             <MdOutlineChat size={20} />
           </button>
-          <button onClick={() => toast.info('Available soon !', {
-            theme: 'dark',
-          })}>
+          <button
+            onClick={() =>
+              toast.info('Available soon !', {
+                theme: 'dark',
+              })
+            }
+          >
             <MdNotifications size={20} />
           </button>
-          <button onClick={() => toast.info('Available soon !', {
-            theme: 'dark',
-          })}>
+          <button
+            onClick={() =>
+              toast.info('Available soon !', {
+                theme: 'dark',
+              })
+            }
+          >
             <MdPublic size={20} />
           </button>
           <ToastContainer autoClose={1500} />

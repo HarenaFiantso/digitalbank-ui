@@ -22,10 +22,10 @@ export default function ChooseAccount() {
     try {
       await deleteAccount(idAccount);
       setAccounts(accounts.filter((account: TAccount) => account.idAccount !== idAccount));
-      toast.success("Account deleted successfully", {
-        theme: "dark",
-        progress: "#7d6fd9"
-      })
+      toast.success('Account deleted successfully', {
+        theme: 'dark',
+        progress: '#7d6fd9',
+      });
     } catch (error) {
       console.error('Failed to delete account', error);
     }

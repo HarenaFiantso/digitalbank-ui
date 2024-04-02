@@ -24,7 +24,7 @@ export default function TransactionTable({ account }: { account: TAccount | unde
       await deleteTransaction(idTransaction);
       setTransactions(transactions.filter((transaction: TTransaction) => transaction.idTransaction !== idTransaction));
       toast.success('Transaction deleted successfully', {
-        theme: "dark",
+        theme: 'dark',
       });
       console.log('Transaction deleted successfully');
     } catch (error) {

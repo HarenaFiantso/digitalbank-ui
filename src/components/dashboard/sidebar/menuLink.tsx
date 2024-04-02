@@ -15,7 +15,7 @@ export default function MenuLink({ item }: { item: TPageItem }) {
 
   const handleLogout = async () => {
     toast.success('Account disconnected', {
-      theme: 'dark'
+      theme: 'dark',
     });
     await new Promise((resolve) => setTimeout(resolve, 3000));
     localStorage.removeItem('idAccount');
