@@ -12,8 +12,8 @@
   "dependencies": {
     "@headlessui/react": "^1.7.19",
     "@hookform/resolvers": "^3.3.4",
-    "@syncfusion/ej2": "^25.1.40",
-    "@syncfusion/ej2-react-charts": "^25.1.41",
+    "@syncfusion/ej2": "^25.1.41",
+    "@syncfusion/ej2-react-charts": "^25.1.40",
     "axios": "^1.6.8",
     "chart.js": "^4.4.2",
     "date-fns": "^3.6.0",
