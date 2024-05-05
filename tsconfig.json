@@ -39,12 +39,5 @@
     "dist/org/.next/types/**/*.ts",
     "next-env.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "tmp",
-    "jest.config.ts",
-    "app/**/*.spec.ts",
-    "app/**/*.test.ts",
-    "dist/org/**/*"
-  ]
+  "exclude": ["node_modules", "tmp", "jest.config.ts", "app/**/*.spec.ts", "app/**/*.test.ts", "dist/org/**/*"]
 }

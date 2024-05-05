@@ -8,8 +8,5 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: './coverage/org',
-  testMatch: [
-    '<rootDir>/**/__tests__/**/*.[jt]s?(x)',
-    '<rootDir>/**/*(*.)@(spec|test).[jt]s?(x)',
-  ],
+  testMatch: ['<rootDir>/**/__tests__/**/*.[jt]s?(x)', '<rootDir>/**/*(*.)@(spec|test).[jt]s?(x)'],
 };

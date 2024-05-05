@@ -6,7 +6,8 @@
     "dev": "nx dev",
     "build": "nx build",
     "start": "nx start",
-    "test": "nx test"
+    "test": "nx test",
+    "format": "prettier --write ."
   },
   "private": true,
   "dependencies": {
